@@ -1,0 +1,22 @@
+header {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+  }
+  
+
+#logo{
+    height: 40px;
+    margin-top: -1px;
+}
+
+header li a {
+    color: white !important;
+}
+
+header li a:hover{
+    color: black !important;
+}
+
+
+

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Footnote } from "../footnote-component/Footnote";
-import { Navbar } from "../navbar-component/Navbar";
-import { NavBarLogin } from "../navbar-component/NavBarLogin";
+import { NavBar } from "../navbar-component/NavBar";
 import "./Home.css";
 
 export const Home = () => {
@@ -21,7 +20,7 @@ export const Home = () => {
 
   return (
     <>
-      <NavBarLogin></NavBarLogin>
+      <NavBar></NavBar>
       <main>
         <section className="home-title mask mask-custom bg-image p-5 text-center shadow-1-strong mb-5 text-white">
           <img

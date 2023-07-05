@@ -4,7 +4,7 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 import '/src/assets/mystyle.css';
 import './Navbar.css';
 
-export const NavBarLogin = () => {
+export const NavBar = () => {
   return (
     <header>
       <nav className="navbar navbar-expand-lg navbar-light bg-green-shadow">
@@ -12,7 +12,7 @@ export const NavBarLogin = () => {
         <a className="navbar-brand me-2" href="https://mdbgo.com/">
           <img
             src="src/assets/images/logos/vitalfresh-white.png"
-            alt="MDB Logo"
+            alt="VitalFresh-Logo"
             loading="lazy"
             id="logo"
           />

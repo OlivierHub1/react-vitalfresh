@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBars,
   faBell,
+  faCartPlus,
   faSearch,
   faShoppingCart,
   fas,
@@ -56,17 +57,18 @@ export const Shop = () => {
         <h1 className="text-center">Our products</h1>
         <div className={isMobile ? "row row-cols-1 g-1" : "row row-cols-3 g-3"}>
           <div className="col">
-            <div className="card">
+            <div className="card p-2">
               <img
                 src="src/assets/images/product/fruit/apple.png"
                 alt="Avatar"
                 className="w-100"
               />
-              <div className="container">
+              <div className="container justify-content-center">
                 <h4>
                   <b>Apple</b>
                 </h4>
-                <p>Fruit</p>
+                <p>Fruit | $0.99</p>
+                <button className="btn btn-dark w-100">ADD TO CART</button>
               </div>
             </div>
           </div>

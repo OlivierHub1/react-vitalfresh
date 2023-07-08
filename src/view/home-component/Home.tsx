@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Footnote } from "../footnote-component/Footnote";
-import { NavBar } from "../navbar-component/NavBar";
 import "./Home.css";
 
 export const Home = () => {
+  // Control size mobile (768) responsive
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   useEffect(() => {
@@ -20,8 +20,6 @@ export const Home = () => {
 
   return (
     <>
-      <NavBar></NavBar>
-      <main>
         <section className="home-title mask mask-custom bg-image p-5 text-center shadow-1-strong mb-5 text-white">
           <img
             src="/src/assets/images/logos/vitalfresh-title-main-trans.png"
@@ -155,9 +153,6 @@ export const Home = () => {
           </div>
         </div>
         </section>
-
-        
-      </main>
 
       <Footnote></Footnote>
     </>

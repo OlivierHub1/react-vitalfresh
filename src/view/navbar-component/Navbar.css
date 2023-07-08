@@ -10,13 +10,20 @@ header {
     margin-top: -1px;
 }
 
-header li a {
-    color: white !important;
+.active{
+    color: black !important;
+    text-decoration: underline !important;
 }
 
-header li a:hover{
+header li a {
+    color: white !important;
+    text-decoration: none;
+}
+
+header li:not(:first-child) a:hover {
     color: black !important;
 }
+
 
 
 

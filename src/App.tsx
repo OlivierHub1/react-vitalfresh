@@ -8,11 +8,16 @@ import {
 //Page
 import { Home } from "./view/home-component/Home";
 import { Shop } from "./view/shop-component/Shop";
-import { Admin } from "./view/admin-component/Admin";
 import { Cart } from "./view/cart-component/Cart";
 import { Profile } from "./view/profile-component/Profile";
 import { Login } from "./view/connection-component/Login";
 import { Signup } from "./view/connection-component/Signup";
+
+//Page Admin
+import { Admin } from "./view/admin-component/Admin";
+import { User } from "./view/admin-component/User";
+import { Type } from "./view/admin-component/Type";
+import { Item } from "./view/admin-component/Item";
 
 //Inclusion
 import { NavBar } from "./view/navbar-component/NavBar";
@@ -24,7 +29,11 @@ function App() {
       <Route path="/" element={<NavBar />}>
         <Route index element={<Home />} />
         <Route path="shop" element={<Shop />} />
-        <Route path="admin" element={<Admin />} />
+        <Route path="admin" element={<Admin />}>
+          <Route path="user" element={<User />} />
+          <Route path="type" element={<Type />} />
+          <Route path="item" element={<Item />} />
+        </Route>
         <Route path="cart" element={<Cart />} />
         <Route path="profile" element={<Profile />} />
         <Route path="login" element={<Login />} />

@@ -13,7 +13,7 @@ export const NavBar = () => {
           <div className="container">
             <a className="navbar-brand me-2" href="/">
               <img
-                src="src/assets/images/logos/vitalfresh-white.png"
+                src="/src/assets/images/logos/vitalfresh-white.png"
                 alt="VitalFresh-Logo"
                 loading="lazy"
                 id="logo"

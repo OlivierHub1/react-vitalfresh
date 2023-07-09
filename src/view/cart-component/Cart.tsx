@@ -34,7 +34,7 @@ export const Cart = () => {
               <div className="d-flex flex-row">
                 <img
                   className="rounded m-3"
-                  src="src/assets/images/product/fruit/apple.png"
+                  src="/src/assets/images/product/fruits/apple.png"
                   width="40"
                   alt="Product"
                 />

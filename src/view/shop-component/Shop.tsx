@@ -59,7 +59,7 @@ export const Shop = () => {
           <div className="col">
             <div className="card p-2">
               <img
-                src="src/assets/images/product/fruit/apple.png"
+                src="/src/assets/images/product/fruits/apple.png"
                 alt="Avatar"
                 className="w-100"
               />

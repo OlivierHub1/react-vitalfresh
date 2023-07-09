@@ -1,0 +1,35 @@
+{
+    "type": [
+      {
+        "id": 1,
+        "name": "Fruits",
+        "description": "The best fruit",
+        "file": "fruits.png"
+      },
+      {
+        "id": 2,
+        "name": "Meat",
+        "description": "High-quality meat",
+        "file": "meat.png"
+      },
+      {
+        "id": 3,
+        "name": "Dairy",
+        "description": "Delicious dairy products",
+        "file": "dairy.png"
+      },
+      {
+        "id": 4,
+        "name": "Vegetables",
+        "description": "Fresh and nutritious vegetables",
+        "file": "vegetables.png"
+      },
+      {
+        "id": 5,
+        "name": "Grain",
+        "description": "Healthy grain options",
+        "file": "grain.png"
+      }
+    ]
+  }
+  

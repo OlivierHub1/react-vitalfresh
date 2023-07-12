@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Footnote } from "../footnote-component/Footnote";
 import "./Home.css";
+import data from '../../assets/data/type.json';
+import { Link } from "react-router-dom";
 
 export const Home = () => {
+  //Type loader
+  //const types = useLoaderData();
+
   // Control size mobile (768) responsive
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
@@ -51,106 +56,27 @@ export const Home = () => {
         <section className="home-products container bg-green-shadow rounded mb-3 pb-5">
           <h1 className="text-center">Our products</h1>
           <div className={isMobile ? 'row row-cols-1 g-1' : 'row row-cols-3 g-3'}>
+          {data.type.map(type => (
+            <Link to={"/shop/" + type.id} key={type.id}>
           <div className="col">
             <div className="card">
               <img
-                src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp"
+                src={"src/assets/images/product/type/" + type.file}
                 className="card-img-top"
                 alt="Hollywood Sign on The Hill"
               />
               <div className="card-body">
-                <h5 className="card-title">Card title</h5>
+                <h5 className="card-title">{type.name}</h5>
                 <p className="card-text">
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
+                {type.description}
                 </p>
               </div>
             </div>
           </div>
-          <div className="col">
-            <div className="card">
-              <img
-                src="https://mdbcdn.b-cdn.net/img/new/standard/city/042.webp"
-                className="card-img-top"
-                alt="Palm Springs Road"
-              />
-              <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="col">
-            <div className="card">
-              <img
-                src="https://mdbcdn.b-cdn.net/img/new/standard/city/043.webp"
-                className="card-img-top"
-                alt="Los Angeles Skyscrapers"
-              />
-              <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="col">
-            <div className="card">
-              <img
-                src="https://mdbcdn.b-cdn.net/img/new/standard/city/044.webp"
-                className="card-img-top"
-                alt="Skyscrapers"
-              />
-              <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="col">
-            <div className="card">
-              <img
-                src="https://mdbcdn.b-cdn.net/img/new/standard/city/046.webp"
-                className="card-img-top"
-                alt="Skyscrapers"
-              />
-              <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="col">
-            <div className="card">
-              <img
-                src="https://mdbcdn.b-cdn.net/img/new/standard/city/050.webp"
-                className="card-img-top"
-                alt="Skyscrapers"
-              />
-              <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </p>
-              </div>
-            </div>
-          </div>
+          </Link>
+      ))}
+          
+          
         </div>
         </section>
 
@@ -158,3 +84,15 @@ export const Home = () => {
     </>
   );
 };
+
+/*
+// data loader
+export const typesLoader = async () => {
+  const res = await fetch('../../assets/data/type.json')
+
+  if (!res.ok) {
+    throw Error('Could not find the career')
+  }
+
+  return res.json()
+}*/

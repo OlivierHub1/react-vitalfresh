@@ -44,7 +44,7 @@
         "id": 6,
         "name": "chicken-drumsticks",
         "description": "Delicious chicken drumsticks",
-        "file": "drumsticks.png",
+        "file": "chicken-drumsticks.png",
         "price": 5.0,
         "type": 2
       },

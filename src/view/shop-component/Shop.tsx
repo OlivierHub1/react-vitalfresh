@@ -1,19 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faBars,
-  faBell,
-  faCartPlus,
-  faSearch,
-  faShoppingCart,
-  fas,
-} from "@fortawesome/free-solid-svg-icons";
 import { Footnote } from "../footnote-component/Footnote";
+import data from "../../assets/data/type.json";
+import { Outlet, useNavigate } from "react-router-dom";
 
 export const Shop = () => {
+  //Navigation
+  const navigate = useNavigate();
+
   // Control size mobile (768) responsive
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
+  //Responsive
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
@@ -26,55 +23,70 @@ export const Shop = () => {
     };
   }, []);
 
+  //Select type
+  const [selectedValue, setSelectedValue] = useState("");
+
+  const handleSelectChange = (event) => {
+    const value = event.target.value;
+    setSelectedValue(value);
+    navigate(`/shop/${value}`);
+  };
+
+  //Search item
+  const [searchInput, setSearchInput] = useState("");
+
+  const handleSearch = (event) => {
+    event.preventDefault();
+    if (searchInput != "") {
+      navigate(`/shop/search/${searchInput}`);
+    } else {
+      navigate(`/shop`);
+    }
+  };
+
+  const handleInputChange = (event) => {
+    setSearchInput(event.target.value);
+  };
+
   return (
     <>
       <section className="container mt-5 mb-3">
         <div className="row justify-content-center">
-          <div className={`input-group mb-3 ${isMobile ? "w-100" : "w-50"}`}>
+          <form
+            onSubmit={handleSearch}
+            className={`input-group mb-3 ${isMobile ? "w-100" : "w-50"}`}
+          >
             <input
               type="text"
               className="form-control"
               placeholder="Search a product"
               aria-label="Search a product"
               aria-describedby="basic-addon2"
+              value={searchInput}
+              onChange={handleInputChange}
             />
             <div className="input-group-append">
-              <button type="button" className="btn btn-dark">
+              <button type="submit" className="btn btn-dark">
                 Search
               </button>
             </div>
-          </div>
-          <select className={`form-select h-25 ${isMobile ? "w-100" : "w-50"}`}>
-            <option selected>Type</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+          </form>
+          <select
+            className={`form-select h-25 ${isMobile ? "w-100" : "w-50"}`}
+            value={selectedValue}
+            onChange={handleSelectChange}
+          >
+            <option disabled>Select type</option>
+            {data.type.map((type) => (
+              <option key={type.id} value={type.id}>
+                {type.name}
+              </option>
+            ))}
           </select>
         </div>
       </section>
 
-      <section className="home-products container bg-green-shadow rounded mb-3 pb-5">
-        <h1 className="text-center">Our products</h1>
-        <div className={isMobile ? "row row-cols-1 g-1" : "row row-cols-3 g-3"}>
-          <div className="col">
-            <div className="card p-2">
-              <img
-                src="/src/assets/images/product/fruits/apple.png"
-                alt="Avatar"
-                className="w-100"
-              />
-              <div className="container justify-content-center">
-                <h4>
-                  <b>Apple</b>
-                </h4>
-                <p>Fruit | $0.99</p>
-                <button className="btn btn-dark w-100">ADD TO CART</button>
-              </div>
-            </div>
-          </div>
-          
-        </div>
-      </section>
+      <Outlet />
 
       <Footnote />
     </>

@@ -44,14 +44,6 @@ export const Type = () => {
               placeholder="Enter description"
             />
           </div>
-          <div className="form-group w-75 my-2">
-            <label htmlFor="exampleDescription">Price</label>
-            <input
-              type="number"
-              className="form-control"
-              placeholder="Enter price"
-            />
-          </div>
           <div className="form-group w-75 my-5">
             <input
               className="form-control form-control-lg"

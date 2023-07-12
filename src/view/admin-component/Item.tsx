@@ -1,7 +1,7 @@
-import { faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
+import { faPenToSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export const Item = () => {
   // Control size mobile (768) responsive
@@ -40,29 +40,46 @@ export const Item = () => {
               placeholder="Enter description"
             />
           </div>
-          <div className="form-group w-75 my-5">
+          <div className="form-group w-75 my-2">
+            <label htmlFor="exampleDescription">Price</label>
             <input
-              className="form-control form-control-lg"
-              id="formFileLg"
-              type="file"
+              type="number"
+              className="form-control"
+              placeholder="Enter price"
             />
           </div>
-          <div className="col text-end">
-            <button type="submit" className="btn btn-dark">
-              Submit
-            </button>
+          <div className="form-group w-75 my-2">
+          <label htmlFor="exampleDescription">Choose type</label>
+            <select className="form-select w-75" aria-label="Default select example">
+              <option selected>Type</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+            <div className="form-group my-5">
+              <input
+                className="form-control form-control-lg"
+                id="formFileLg"
+                type="file"
+              />
+            </div>
+            <div className="col text-end">
+              <button type="submit" className="btn btn-dark">
+                Submit
+              </button>
+            </div>
           </div>
         </form>
       </section>
 
       <section className="container home-products bg-green-shadow rounded mt-5 mb-3 pb-5">
-        <h1 className="text-center">Type List</h1>
+        <h1 className="text-center">Item List</h1>
 
         <div className="row justify-content-center bg-light rounded m-5 p-2">
           <div className={`col align-self-center ${isMobile ? "mx-4" : ""}`}>
             <img
-              src="/src/assets/images/product/type/fruits.png"
-              alt="fruits"
+              src="/src/assets/images/product/fruits/apple.png"
+              alt="apple"
               className="img-round"
             />
           </div>
@@ -89,4 +106,4 @@ export const Item = () => {
       </section>
     </>
   );
-}
+};

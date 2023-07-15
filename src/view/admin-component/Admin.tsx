@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
+import { Footnote } from "../footnote-component/Footnote";
 
 export const Admin = () => {
   return (
@@ -25,6 +26,7 @@ export const Admin = () => {
         </div>
       </section>
       <Outlet />
+      <Footnote/>
     </>
   );
 };

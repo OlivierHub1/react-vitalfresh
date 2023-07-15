@@ -5,22 +5,13 @@ import "./Login.css";
 export const Signup = () => {
   return (
     <div className="login-page">
-      <div className="form">
-        <form className="register-form">
-          <input type="text" placeholder="name" />
-          <input type="password" placeholder="password" />
-          <input type="text" placeholder="email address" />
-          <button>create</button>
-          <p className="message">
-            Already registered? <a href="#">Sign In</a>
-          </p>
-        </form>
+      <div className="form bg-green rounded">
         <form className="login-form">
-          <input type="text" placeholder="username" />
-          <input type="email" placeholder="email" />
-          <input type="password" placeholder="password" />
-          <input type="password" placeholder="confirm password" />
-          <button>SIGN UP</button>
+          <input className="rounded" type="text" placeholder="username" />
+          <input className="rounded" type="email" placeholder="email" />
+          <input className="rounded" type="password" placeholder="password" />
+          <input className="rounded" type="password" placeholder="confirm password" />
+          <button className="btn btn-dark">Sign Up</button>
           <p className="message">
             Registered? <NavLink to="/login">Login</NavLink>
           </p>

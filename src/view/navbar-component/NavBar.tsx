@@ -11,14 +11,14 @@ export const NavBar = () => {
       <header>
         <nav className="navbar navbar-expand-lg navbar-light bg-green-shadow">
           <div className="container">
-            <a className="navbar-brand me-2" href="/">
+            <Link className="navbar-brand me-2" to="/">
               <img
                 src="/src/assets/images/logos/vitalfresh-white.png"
                 alt="VitalFresh-Logo"
                 loading="lazy"
                 id="logo"
               />
-            </a>
+            </Link>
             <button
               className="navbar-toggler"
               type="button"
@@ -28,38 +28,18 @@ export const NavBar = () => {
               aria-expanded="false"
               aria-label="Toggle navigation"
             >
-              <FontAwesomeIcon icon={faBars} />
+              <FontAwesomeIcon icon={faBars}/>
             </button>
             <div className="collapse navbar-collapse" id="navbarButtonsExample">
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
                   <a className="nav-link">VITALFRESH</a>
                 </li>
-                <li className="nav-item">
-                  <NavLink to="/" className="nav-link">
-                    HOME
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink to="shop" className="nav-link">
-                    SHOP
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink to="cart" className="nav-link">
-                    CART
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink to="profile" className="nav-link">
-                    PROFILE
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink to="admin" className="nav-link">
-                    ADMIN
-                  </NavLink>
-                </li>
+                {renderNavLink(true, "HOME", "/")}
+                {renderNavLink(true, "SHOP", "shop")}
+                {renderNavLink(true, "CART", "cart")}
+                {renderNavLink(true, "PROFILE", "profile")}
+                {renderNavLink(false, "ADMIN", "admin")}
               </ul>
 
               <div className="d-flex align-items-center">
@@ -85,3 +65,17 @@ export const NavBar = () => {
     </>
   );
 };
+
+//Render nav-item
+function renderNavLink(condition:boolean, name:string, link:string) {
+  if (condition) {
+    return (
+      <li className="nav-item">
+        <NavLink to={link} className="nav-link">
+          {name}
+        </NavLink>
+      </li>
+    );
+  }
+  return null;
+}

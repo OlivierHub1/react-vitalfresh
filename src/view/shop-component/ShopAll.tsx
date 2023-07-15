@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from "react";
 import data from "../../assets/data/item.json";
+import { ItemService } from '../../assets/service/itemService';
 
 export const ShopAll = () => {
+  //Get item
+  const itemService = new ItemService();
+  const items = itemService.getItems();
+
   // Control size mobile (768) responsive
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
@@ -23,13 +28,13 @@ export const ShopAll = () => {
       <section className="home-products container bg-green-shadow rounded mb-3 pb-5">
         <h1 className="text-center">Our products</h1>
         <div className={isMobile ? "row row-cols-1 g-1" : "row row-cols-3 g-3"}>
-          {data.item.map((item) => (
-            <div className="col mb-2">
+          {items.map((item) => (
+            <div className="col mb-2" key={item.id}>
               <div className="card p-2">
                 <img
                   src={
                     "/src/assets/images/product/" +
-                    findType(item.type) +
+                    itemService.getItemsByType(item.type) +
                     "/" +
                     item.file
                   }
@@ -40,7 +45,7 @@ export const ShopAll = () => {
                   <h4>
                     <b>{item.name}</b>
                   </h4>
-                  <p>{findType(item.type) + " | " + item.price + "$"}</p>
+                  <p>{itemService.getItemsByType(item.type) + " | " + item.price + "$"}</p>
                   <button className="btn btn-dark w-100">ADD TO CART</button>
                 </div>
               </div>
@@ -51,20 +56,3 @@ export const ShopAll = () => {
     </>
   );
 };
-
-function findType(typeId: number) {
-  switch (typeId) {
-    case 1:
-      return "Fruits";
-    case 2:
-      return "Meats";
-    case 3:
-      return "Dairy";
-    case 4:
-      return "Vegetables";
-    case 5:
-      return "Grain";
-    default:
-      return null;
-  }
-}

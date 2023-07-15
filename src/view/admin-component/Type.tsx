@@ -6,8 +6,14 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { TypeService } from '../../assets/service/typeService';
+
 
 export const Type = () => {
+  //Get type
+  const typeService = new TypeService();
+  const types = typeService.getTypes();
+
   // Control size mobile (768) responsive
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
@@ -62,11 +68,14 @@ export const Type = () => {
       <section className="container home-products bg-green-shadow rounded mt-5 mb-3 pb-5">
         <h1 className="text-center">Type List</h1>
 
-        <div className="row justify-content-center bg-light rounded m-5 p-2">
+        
+
+        {types.map((type) => (
+          <div className="row justify-content-center bg-light rounded m-5 p-2">
           <div className={`col align-self-center ${isMobile ? "mx-4" : ""}`}>
             <img
-              src="/src/assets/images/product/type/fruits.png"
-              alt="fruits"
+              src={"/src/assets/images/product/type/" + type.file}
+              alt={type.name}
               className="img-round"
             />
           </div>
@@ -75,8 +84,8 @@ export const Type = () => {
               isMobile ? "col-12 text-center my-3" : "col"
             }`}
           >
-            <Link to="user" className="btn btn-dark">
-              Fruits
+            <Link to={"/shop/" + type.id} className="btn btn-dark">
+              {type.name}
             </Link>
           </div>
           <div className="col align-self-center">
@@ -90,6 +99,7 @@ export const Type = () => {
             </button>
           </div>
         </div>
+      ))}
       </section>
     </>
   );

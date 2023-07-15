@@ -4,6 +4,7 @@ import data from "../../assets/data/type.json";
 import { Outlet, useNavigate } from "react-router-dom";
 
 export const Shop = () => {
+
   //Navigation
   const navigate = useNavigate();
 

@@ -2,8 +2,14 @@ import { faPenToSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { ItemService } from "../../assets/service/itemService";
 
 export const Item = () => {
+  //Get item
+  const itemService = new ItemService();
+  const items = itemService.getItems();
+  
+
   // Control size mobile (768) responsive
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
@@ -75,11 +81,14 @@ export const Item = () => {
       <section className="container home-products bg-green-shadow rounded mt-5 mb-3 pb-5">
         <h1 className="text-center">Item List</h1>
 
-        <div className="row justify-content-center bg-light rounded m-5 p-2">
+        
+
+        {items.map((item) => (
+          <div className="row justify-content-center bg-light rounded m-5 p-2">
           <div className={`col align-self-center ${isMobile ? "mx-4" : ""}`}>
             <img
-              src="/src/assets/images/product/fruits/apple.png"
-              alt="apple"
+              src={"/src/assets/images/product/" + itemService.getItemsByType(item.type) + "/" + item.file}
+              alt={item.name}
               className="img-round"
             />
           </div>
@@ -88,8 +97,8 @@ export const Item = () => {
               isMobile ? "col-12 text-center my-3" : "col"
             }`}
           >
-            <Link to="user" className="btn btn-dark">
-              Fruits
+            <Link to={"/shop/search/" + item.name} className="btn btn-dark">
+              {itemService.getItemsByType(item.type)}
             </Link>
           </div>
           <div className="col align-self-center">
@@ -103,6 +112,9 @@ export const Item = () => {
             </button>
           </div>
         </div>
+
+      ))}
+
       </section>
     </>
   );

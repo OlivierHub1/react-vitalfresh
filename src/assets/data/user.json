@@ -1,84 +1,92 @@
 {
-    "user": [
-      {
-        "id": 1,
-        "firstName": "Fring",
-        "lastName": "Gusstavo",
-        "username": "Gus200",
-        "email": "gus@gmail.com",
-        "password": "password",
-        "file": "Gus.png",
-        "money": "5000000"
-      },
-      {
-        "id": 2,
-        "firstName": "Schrader",
-        "lastName": "Hank",
-        "username": "Hank77",
-        "email": "hank@gmail.com",
-        "password": "password",
-        "file": "Hank.png",
-        "money": "1000000"
-      },
-      {
-        "id": 3,
-        "firstName": "Pinkman",
-        "lastName": "Jesse",
-        "username": "Jesse99",
-        "email": "jesse@gmail.com",
-        "password": "password",
-        "file": "Jesse.png",
-        "money": "500000"
-      },
-      {
-        "id": 4,
-        "firstName": "Ehrmantraut",
-        "lastName": "Mike",
-        "username": "Mike55",
-        "email": "mike@gmail.com",
-        "password": "password",
-        "file": "Mike.png",
-        "money": "2000000"
-      },
-      {
-        "id": 5,
-        "firstName": "Goodman",
-        "lastName": "Saul",
-        "username": "SaulBetterCall",
-        "email": "saul@gmail.com",
-        "password": "password",
-        "file": "Saul.png",
-        "money": "3000000"
-      },
-      {
-        "id": 6,
-        "firstName": "White",
-        "lastName": "Skyler",
-        "username": "SkylerBlue",
-        "email": "skyler@gmail.com",
-        "password": "password",
-        "file": "Skyler.png",
-        "money": "4000000"
-      },
-      {
-        "id": 7,
-        "firstName": "White",
-        "lastName": "Walter",
-        "username": "Heisenberg",
-        "email": "walter@gmail.com",
-        "password": "password",
-        "file": "Walter.png",
-        "money": "6000000"
-      },
-      {
-        "id": 8,
-        "firstName": "White",
-        "lastName": "Walter Jr.",
-        "username": "Flynn2000",
-        "email": "flynn@gmail.com",
-        "password": "password",
-        "file": "Walter-Jr.png",
-        "money": "100000"
-      }
-    ]
-  }  
+  "user": [
+    {
+      "id": 1,
+      "firstName": "Fring",
+      "lastName": "Gusstavo",
+      "username": "Gus200",
+      "email": "gus@gmail.com",
+      "password": "password",
+      "file": "Gus.png",
+      "money": "5000000",
+      "status": true
+    },
+    {
+      "id": 2,
+      "firstName": "Schrader",
+      "lastName": "Hank",
+      "username": "Hank77",
+      "email": "hank@gmail.com",
+      "password": "password",
+      "file": "Hank.png",
+      "money": "1000000",
+      "status": true
+    },
+    {
+      "id": 3,
+      "firstName": "Pinkman",
+      "lastName": "Jesse",
+      "username": "Jesse99",
+      "email": "jesse@gmail.com",
+      "password": "password",
+      "file": "Jesse.png",
+      "money": "500000",
+      "status": true
+    },
+    {
+      "id": 4,
+      "firstName": "Ehrmantraut",
+      "lastName": "Mike",
+      "username": "Mike55",
+      "email": "mike@gmail.com",
+      "password": "password",
+      "file": "Mike.png",
+      "money": "2000000",
+      "status": true
+    },
+    {
+      "id": 5,
+      "firstName": "Goodman",
+      "lastName": "Saul",
+      "username": "SaulBetterCall",
+      "email": "saul@gmail.com",
+      "password": "password",
+      "file": "Saul.png",
+      "money": "3000000",
+      "status": true
+    },
+    {
+      "id": 6,
+      "firstName": "White",
+      "lastName": "Skyler",
+      "username": "SkylerBlue",
+      "email": "skyler@gmail.com",
+      "password": "password",
+      "file": "Skyler.png",
+      "money": "4000000",
+      "status": true
+    },
+    {
+      "id": 7,
+      "firstName": "White",
+      "lastName": "Walter",
+      "username": "Heisenberg",
+      "email": "walter@gmail.com",
+      "password": "password",
+      "file": "Walt.png",
+      "money": "6000000",
+      "status": true
+    },
+    {
+      "id": 8,
+      "firstName": "White",
+      "lastName": "Walter Jr.",
+      "username": "Flynn2000",
+      "email": "flynn@gmail.com",
+      "password": "password",
+      "file": "Walter-Jr.png",
+      "money": "100000",
+      "status": true
+    }
+  ]
+}

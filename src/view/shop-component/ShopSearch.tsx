@@ -1,10 +1,15 @@
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import data from "../../assets/data/item.json";
+import { ItemService } from "../../assets/service/itemService";
 
 export const ShopSearch = () => {
+  //Get item
+  const itemService = new ItemService();
+  const items = itemService.getItems();
+
   //Get item by type with the id of the type
-  const {search} = useParams();
+  const { search } = useParams();
 
   // Control size mobile (768) responsive
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
@@ -26,17 +31,22 @@ export const ShopSearch = () => {
     <>
       <section className="home-products container bg-green-shadow rounded mb-3 pb-5">
         <h1 className="text-center">Our products</h1>
+
+        {items.filter((item) => item.name.includes(search) || search === "")
+          .length === 0 && (
+          <h2 className="text-center text-danger bg-dark rounded">No result for: {search}</h2>
+        )}
+        
         <div className={isMobile ? "row row-cols-1 g-1" : "row row-cols-3 g-3"}>
-          {data.item.map((item) => {
-            if (item.name.includes(search) || search == "") {
-              console.log(search)
+          {items.map((item) => {
+            if (item.name.includes(search) || search === "") {
               return (
                 <div className="col mb-2" key={item.id}>
                   <div className="card p-2">
                     <img
                       src={
                         "/src/assets/images/product/" +
-                        findType(item.type) +
+                        itemService.getItemsByType(item.type) +
                         "/" +
                         item.file
                       }
@@ -47,7 +57,12 @@ export const ShopSearch = () => {
                       <h4>
                         <b>{item.name}</b>
                       </h4>
-                      <p>{findType(item.type) + " | " + item.price + "$"}</p>
+                      <p>
+                        {itemService.getItemsByType(item.type) +
+                          " | " +
+                          item.price +
+                          "$"}
+                      </p>
                       <button className="btn btn-dark w-100">
                         ADD TO CART
                       </button>
@@ -63,20 +78,3 @@ export const ShopSearch = () => {
     </>
   );
 };
-
-function findType(typeId: number) {
-  switch (typeId) {
-    case 1:
-      return "Fruits";
-    case 2:
-      return "Meats";
-    case 3:
-      return "Dairy";
-    case 4:
-      return "Vegetables";
-    case 5:
-      return "Grain";
-    default:
-      return null;
-  }
-}

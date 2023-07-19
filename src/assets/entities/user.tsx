@@ -7,7 +7,7 @@ export class User {
     password: string;
     file: string;
     money: string;
-    status: boolean;
+    status: string
   
     constructor(
       id: number,
@@ -18,7 +18,7 @@ export class User {
       password: string,
       file: string,
       money: string,
-      status: boolean
+      status: string
     ) {
       this.id = id;
       this.firstName = firstName;

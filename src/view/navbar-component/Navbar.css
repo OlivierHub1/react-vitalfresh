@@ -11,17 +11,13 @@ header {
 }
 
 .active{
-    color: black !important;
-    text-decoration: underline !important;
+    background-color: #212529 !important;
+    color: light !important;
 }
 
 header li a {
     color: white !important;
     text-decoration: none;
-}
-
-header li:not(:first-child) a:hover {
-    color: black !important;
 }
 
 

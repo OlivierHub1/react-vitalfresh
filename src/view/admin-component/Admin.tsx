@@ -26,7 +26,6 @@ export const Admin = () => {
         </div>
       </section>
       <Outlet />
-      <Footnote/>
     </>
   );
 };

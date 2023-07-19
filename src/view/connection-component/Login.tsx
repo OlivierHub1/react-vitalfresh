@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Login.css";
-import { ReactSession } from 'react-client-session';
 import { UserService } from "../../assets/service/userService";
 
 export const Login = () => {
   //Get user
   const userService = new UserService();
-  const users = userService.getUsers();
 
   //Login State
   const [username, setUsername] = useState("");
@@ -20,11 +18,13 @@ export const Login = () => {
     // Perform authentication logic here, e.g., send a request to your API
 
     // Simulating a successful login
-    if (username === "your_username" && password === "your_password") {
+    if (userService.verifyUserExist(username, password)) {
       // Set the session or authentication token
-      localStorage.setItem("isLoggedIn", "true");
+      window;
+      localStorage.setItem("userName", username);
 
       // Redirect to the home page or any other authenticated route
+
       window.location.href = "/";
     } else {
       // Show an error message for unsuccessful login

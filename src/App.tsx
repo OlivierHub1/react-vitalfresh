@@ -32,6 +32,9 @@ import { NotFound } from "./view/error-component/NotFound";
 //Test
 import { Test } from "./view/a-test/test";
 
+//Verify user connection
+const isConnected = localStorage.getItem("userName") != null;
+
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -42,13 +45,13 @@ function App() {
           <Route path=":id" element={<ShopSelect />}/>
           <Route path="search/:search" element={<ShopSearch />} />
         </Route>
-        <Route path="admin" element={true ? <Admin /> : <NotFound/>}>
+        <Route path="admin" element={Error ? <Admin /> : <NotFound/>}>
           <Route path="user" element={<User />} />
           <Route path="type" element={<Type />} />
           <Route path="item" element={<Item />} />
         </Route>
         <Route path="cart" element={true ? <Cart /> : <NotFound/>} />
-        <Route path="profile" element={true ? <Profile /> : <NotFound/>} />
+        <Route path="profile" element={isConnected ? <Profile /> : <NotFound/>} />
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<Signup />} />
         <Route path="*" element={<NotFound />} />

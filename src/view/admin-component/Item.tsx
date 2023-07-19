@@ -27,8 +27,8 @@ export const Item = () => {
 
   return (
     <>
-      <section className="container home-products bg-green-shadow rounded mt-5 mb-3 pb-5">
-        <h1 className="text-center">Add new type</h1>
+      <section className="container bg-green-shadow rounded mt-5 mb-3 pb-5">
+        <h1 className="text-center text-white">Add new type</h1>
         <form className="mx-5">
           <div className="form-group w-75 my-2">
             <label htmlFor="exampleInputEmail1">Name</label>
@@ -78,8 +78,8 @@ export const Item = () => {
         </form>
       </section>
 
-      <section className="container home-products bg-green-shadow rounded mt-5 mb-3 pb-5">
-        <h1 className="text-center">Item List</h1>
+      <section className="container bg-green-shadow rounded mt-5 mb-3 pb-5">
+        <h1 className="text-center text-white">Item List</h1>
 
         
 

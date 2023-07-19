@@ -49,41 +49,12 @@ export const Test = () => {
       </div>
 
       <div className="d-flex align-items-center">
-      <button className='btn btn-dark'>login</button>
+      <button className='btn btn-dark'>Login</button>
+      <button className='btn btn-light'>Sign up</button>
         <a className="text-reset me-3" href="#">
           <FontAwesomeIcon icon={faShoppingCart} />
+          <span className="badge rounded-pill badge-notification bg-danger">1</span>
         </a>
-
-        <div className="dropdown">
-          <a
-            className="text-reset me-3 dropdown-toggle hidden-arrow"
-            href="#"
-            id="navbarDropdownMenuLink"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            <FontAwesomeIcon icon={faBell} />
-            <span className="badge rounded-pill badge-notification bg-danger">1</span>
-          </a>
-          <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-            <li>
-              <a className="dropdown-item" href="#">
-                Some news
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Another news
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Something else here
-              </a>
-            </li>
-          </ul>
-        </div>
 
         <div className="dropdown">
           <a
@@ -106,11 +77,6 @@ export const Test = () => {
             <li>
               <a className="dropdown-item" href="#">
                 My profile
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Settings
               </a>
             </li>
             <li>

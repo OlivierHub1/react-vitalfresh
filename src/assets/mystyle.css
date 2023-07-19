@@ -28,3 +28,15 @@
     width: 300px;
     height: 300px;
 }
+
+.green-hover:hover{
+    color:green
+}
+
+.blue-hover:hover{
+    color:blue
+}
+
+.red-hover:hover{
+    color:red
+}

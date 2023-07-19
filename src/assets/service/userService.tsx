@@ -12,17 +12,36 @@ export class UserService {
     userData.password,
     userData.file,
     userData.money,
-    userData.status || false
+    userData.status
   ));
 
   getUsers() {
     return this.users;
   }
 
-  /*addUser(id, firstName, lastName, username, email, password, file, money, status) {
-    const newUser = new User(id, firstName, lastName, username, email, password, file, money, status);
-    this.users.push(newUser);
-    return newUser;
-  }*/
+  addUser(newUser) {
+    const user = new User(
+      newUser.id,
+      newUser.firstName,
+      newUser.lastName,
+      newUser.username,
+      newUser.email,
+      newUser.password,
+      newUser.file,
+      newUser.money,
+      newUser.status
+    );
+
+    this.users.push(user);
+  }
+
+  verifyUserExist(username, password) {
+    const user = this.users.find((user) => user.username === username && user.password === password);
+    return user !== undefined;
+  }
+
+  getUserByUsername(username) {
+    return this.users.find((user) => user.username === username);
+  }
 }
 

@@ -1,6 +1,13 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
+import {uid} from "uid";
+import { getDatabase, child, ref, get, onValue } from "firebase/database";
 import userData from '../data/user.json';
 import { User } from '../entities/user';
+
+/*const userDb = firebase.ref('user');
+userDb.on('value', (snapshot) => {
+  let users = snapshot.val();
+})*/
 
 export class UserService {
   users = userData.user.map((userData) => new User(

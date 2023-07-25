@@ -1,0 +1,287 @@
+{
+    "user": [
+      {
+        "id": 1,
+        "firstName": "Fring",
+        "lastName": "Gusstavo",
+        "username": "Gus200",
+        "email": "gus@gmail.com",
+        "password": "password",
+        "file": "Gus.png",
+        "money": "5000000",
+        "status": "admin"
+      },
+      {
+        "id": 2,
+        "firstName": "Schrader",
+        "lastName": "Hank",
+        "username": "Hank77",
+        "email": "hank@gmail.com",
+        "password": "password",
+        "file": "Hank.png",
+        "money": "1000000",
+        "status": "user"
+      },
+      {
+        "id": 3,
+        "firstName": "Pinkman",
+        "lastName": "Jesse",
+        "username": "Jesse99",
+        "email": "jesse@gmail.com",
+        "password": "password",
+        "file": "Jesse.png",
+        "money": "500000",
+        "status": "user"
+      },
+      {
+        "id": 4,
+        "firstName": "Ehrmantraut",
+        "lastName": "Mike",
+        "username": "Mike55",
+        "email": "mike@gmail.com",
+        "password": "password",
+        "file": "Mike.png",
+        "money": "2000000",
+        "status": "user"
+      },
+      {
+        "id": 5,
+        "firstName": "Goodman",
+        "lastName": "Saul",
+        "username": "SaulBetterCall",
+        "email": "saul@gmail.com",
+        "password": "password",
+        "file": "Saul.png",
+        "money": "3000000",
+        "status": "user"
+      },
+      {
+        "id": 6,
+        "firstName": "White",
+        "lastName": "Skyler",
+        "username": "SkylerBlue",
+        "email": "skyler@gmail.com",
+        "password": "password",
+        "file": "Skyler.png",
+        "money": "4000000",
+        "status": "user"
+      },
+      {
+        "id": 7,
+        "firstName": "White",
+        "lastName": "Walter",
+        "username": "Heisenberg",
+        "email": "walter@gmail.com",
+        "password": "password",
+        "file": "Walt.png",
+        "money": "6000000",
+        "status": "user"
+      },
+      {
+        "id": 8,
+        "firstName": "White",
+        "lastName": "Walter Jr.",
+        "username": "Flynn2000",
+        "email": "flynn@gmail.com",
+        "password": "password",
+        "file": "Walter-Jr.png",
+        "money": "100000",
+        "status": "user"
+      }
+    ],
+    "item": [
+        {
+          "id": 1,
+          "name": "apple",
+          "description": "Good apple",
+          "file": "apple.png",
+          "price": 2.5,
+          "type": 1
+        },
+        {
+          "id": 2,
+          "name": "banana",
+          "description": "Tasty banana",
+          "file": "banana.png",
+          "price": 1.5,
+          "type": 1
+        },
+        {
+          "id": 3,
+          "name": "orange",
+          "description": "Juicy orange",
+          "file": "orange.png",
+          "price": 2.0,
+          "type": 1
+        },
+        {
+          "id": 4,
+          "name": "grapes",
+          "description": "Sweet grapes",
+          "file": "grapes.png",
+          "price": 3.0,
+          "type": 1
+        },
+        {
+          "id": 5,
+          "name": "pear",
+          "description": "Fresh pear",
+          "file": "pear.png",
+          "price": 1.8,
+          "type": 1
+        },
+        {
+          "id": 6,
+          "name": "chicken-drumsticks",
+          "description": "Delicious chicken drumsticks",
+          "file": "chicken-drumsticks.png",
+          "price": 5.0,
+          "type": 2
+        },
+        {
+          "id": 7,
+          "name": "minced-meat",
+          "description": "Quality minced meat",
+          "file": "minced-meat.png",
+          "price": 4.5,
+          "type": 2
+        },
+        {
+          "id": 8,
+          "name": "pork-chops",
+          "description": "Tender pork chops",
+          "file": "pork-chops.png",
+          "price": 6.0,
+          "type": 2
+        },
+        {
+          "id": 9,
+          "name": "steak",
+          "description": "Juicy steak",
+          "file": "steak.png",
+          "price": 7.5,
+          "type": 2
+        },
+        {
+          "id": 10,
+          "name": "cheese",
+          "description": "Delicious cheese",
+          "file": "cheese.png",
+          "price": 3.5,
+          "type": 3
+        },
+        {
+          "id": 11,
+          "name": "milk",
+          "description": "Fresh milk",
+          "file": "milk.png",
+          "price": 2.0,
+          "type": 3
+        },
+        {
+          "id": 12,
+          "name": "cream",
+          "description": "Smooth cream",
+          "file": "cream.png",
+          "price": 4.0,
+          "type": 3
+        },
+        {
+          "id": 13,
+          "name": "broccoli",
+          "description": "Nutritious broccoli",
+          "file": "broccoli.png",
+          "price": 1.5,
+          "type": 4
+        },
+        {
+          "id": 14,
+          "name": "carrot",
+          "description": "Fresh carrot",
+          "file": "carrot.png",
+          "price": 0.8,
+          "type": 4
+        },
+        {
+          "id": 15,
+          "name": "eggplant",
+          "description": "Versatile eggplant",
+          "file": "eggplant.png",
+          "price": 1.2,
+          "type": 4
+        },
+        {
+          "id": 16,
+          "name": "onion",
+          "description": "Flavorful onion",
+          "file": "onion.png",
+          "price": 0.5,
+          "type": 4
+        },
+        {
+          "id": 17,
+          "name": "tomato",
+          "description": "Juicy tomato",
+          "file": "tomato.png",
+          "price": 0.7,
+          "type": 4
+        },
+        {
+          "id": 18,
+          "name": "bread",
+          "description": "Freshly baked bread",
+          "file": "bread.png",
+          "price": 2.0,
+          "type": 5
+        },
+        {
+          "id": 19,
+          "name": "flour",
+          "description": "High-quality flour",
+          "file": "flour.png",
+          "price": 1.5,
+          "type": 5
+        },
+        {
+          "id": 20,
+          "name": "rice",
+          "description": "Premium rice",
+          "file": "rice.png",
+          "price": 3.0,
+          "type": 5
+        }
+      ],
+      "type": [
+        {
+          "id": 1,
+          "name": "Fruits",
+          "description": "The best fruit",
+          "file": "fruits.png"
+        },
+        {
+          "id": 2,
+          "name": "Meats",
+          "description": "High-quality meat",
+          "file": "meats.png"
+        },
+        {
+          "id": 3,
+          "name": "Dairy",
+          "description": "Delicious dairy products",
+          "file": "dairy.png"
+        },
+        {
+          "id": 4,
+          "name": "Vegetables",
+          "description": "Fresh and nutritious vegetables",
+          "file": "vegetables.png"
+        },
+        {
+          "id": 5,
+          "name": "Grain",
+          "description": "Healthy grain options",
+          "file": "grain.png"
+        }
+      ]
+  }
+  

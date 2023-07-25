@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
 import { Footnote } from "../footnote-component/Footnote";
+import axios from "axios";
 
 export const Admin = () => {
   return (

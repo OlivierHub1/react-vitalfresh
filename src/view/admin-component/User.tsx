@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import {
   faPenToSquare,
   faTrash,
@@ -5,7 +6,6 @@ import {
   faUserSlash,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { UserService } from "../../assets/service/userService";
 
@@ -17,6 +17,11 @@ export const User = () => {
   const userService = new UserService();
   const users = userService.getUsers();
 
+  //Set User
+  const [items, setUsers] = useState([]);
+  const [newItemName, setNewUserName] = useState("");
+
+  //UseEffect
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);

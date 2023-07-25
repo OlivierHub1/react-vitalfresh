@@ -11,6 +11,11 @@ const userService = new UserService();
 const userData = userService.getUserByUsername(localStorage.getItem("userName"));
 let isAdmin = false;
 
+//Set localStorage for data
+/*localStorage.setItem();
+localStorage.setItem();
+localStorage.setItem();*/
+
 //Handle logout
 const handleLogut = () => {
   localStorage.clear();

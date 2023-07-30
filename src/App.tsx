@@ -31,6 +31,7 @@ import { NotFound } from "./view/error-component/NotFound";
 
 //Test
 import { Test } from "./view/a-test/test";
+import { File } from "./view/a-test/File";
 
 //Verify user connection
 const isConnected = localStorage.getItem("userName") != null;
@@ -56,6 +57,7 @@ function App() {
         <Route path="signup" element={<Signup />} />
         <Route path="*" element={<NotFound />} />
         <Route path="test" element={<Test />} />
+        <Route path="file" element={<File />} />
       </Route>
     )
   );

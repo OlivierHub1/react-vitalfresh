@@ -1,294 +1,293 @@
 {
-    "user": [
-      {
-        "id": 0,
-        "firstName": "Fring",
-        "lastName": "Gusstavo",
-        "username": "Gus200",
-        "email": "gus@gmail.com",
-        "password": "password",
-        "file": "https://firebasestorage.googleapis.com/v0/b/vitalfresh-53b01.appspot.com/o/user%2FGus.png?alt=media&token=6999ba5c-148e-4ddf-b6fc-1a0188ac7410",
-        "money": "5000000",
-        "status": "admin"
-      },
-      {
-        "id": 1,
-        "firstName": "Schrader",
-        "lastName": "Hank",
-        "username": "Hank77",
-        "email": "hank@gmail.com",
-        "password": "password",
-        "file": "https://firebasestorage.googleapis.com/v0/b/vitalfresh-53b01.appspot.com/o/user%2FHank.png?alt=media&token=1f184f92-9dd3-4fcf-a65d-d103835a8cc5",
-        "money": "1000000",
-        "status": "user"
-      },
-      {
-        "id": 2,
-        "firstName": "Pinkman",
-        "lastName": "Jesse",
-        "username": "Jesse99",
-        "email": "jesse@gmail.com",
-        "password": "password",
-        "file": "https://firebasestorage.googleapis.com/v0/b/vitalfresh-53b01.appspot.com/o/user%2FJesse.png?alt=media&token=90d91b0f-7fa2-472a-ba2e-b9e30d427d1e",
-        "money": "500000",
-        "status": "user"
-      },
-      {
-        "id": 3,
-        "firstName": "Ehrmantraut",
-        "lastName": "Mike",
-        "username": "Mike55",
-        "email": "mike@gmail.com",
-        "password": "password",
-        "file": "https://firebasestorage.googleapis.com/v0/b/vitalfresh-53b01.appspot.com/o/user%2FMike.png?alt=media&token=e3b28975-a518-4637-803c-41bd41083885",
-        "money": "2000000",
-        "status": "user"
-      },
-      {
-        "id": 4,
-        "firstName": "Goodman",
-        "lastName": "Saul",
-        "username": "SaulBetterCall",
-        "email": "saul@gmail.com",
-        "password": "password",
-        "file": "https://firebasestorage.googleapis.com/v0/b/vitalfresh-53b01.appspot.com/o/user%2FSaul.png?alt=media&token=96a67994-e001-4bdd-8d44-80e77761ba9a",
-        "money": "3000000",
-        "status": "user"
-      },
-      {
-        "id": 5,
-        "firstName": "White",
-        "lastName": "Skyler",
-        "username": "SkylerBlue",
-        "email": "skyler@gmail.com",
-        "password": "password",
-        "file": "https://firebasestorage.googleapis.com/v0/b/vitalfresh-53b01.appspot.com/o/user%2FSkyler.png?alt=media&token=b9f61790-b6f7-4825-b89f-2f4a841bf8c3",
-        "money": "4000000",
-        "status": "user"
-      },
-      {
-        "id": 6,
-        "firstName": "White",
-        "lastName": "Walter",
-        "username": "Heisenberg",
-        "email": "walter@gmail.com",
-        "password": "password",
-        "file": "https://firebasestorage.googleapis.com/v0/b/vitalfresh-53b01.appspot.com/o/user%2FWalt.png?alt=media&token=259f0c74-d6c3-419c-a98d-99053c319e1e",
-        "money": "6000000",
-        "status": "user"
-      },
-      {
-        "id": 7,
-        "firstName": "White",
-        "lastName": "Walter Jr.",
-        "username": "Flynn2000",
-        "email": "flynn@gmail.com",
-        "password": "password",
-        "file": "https://firebasestorage.googleapis.com/v0/b/vitalfresh-53b01.appspot.com/o/user%2FWalter-Jr.png?alt=media&token=148c2b1d-a622-4a58-949c-b5e0cdae38b6",
-        "money": "100000",
-        "status": "user"
-      }
-    ],
-    "item": [
-        {
-          "id": 0,
-          "name": "apple",
-          "description": "Good apple",
-          "file": "apple.png",
-          "price": 2.5,
-          "type": 1
-        },
-        {
-          "id": 1,
-          "name": "banana",
-          "description": "Tasty banana",
-          "file": "banana.png",
-          "price": 1.5,
-          "type": 1
-        },
-        {
-          "id": 2,
-          "name": "orange",
-          "description": "Juicy orange",
-          "file": "orange.png",
-          "price": 2.0,
-          "type": 1
-        },
-        {
-          "id": 3,
-          "name": "grapes",
-          "description": "Sweet grapes",
-          "file": "grapes.png",
-          "price": 3.0,
-          "type": 1
-        },
-        {
-          "id": 4,
-          "name": "pear",
-          "description": "Fresh pear",
-          "file": "pear.png",
-          "price": 1.8,
-          "type": 1
-        },
-        {
-          "id": 5,
-          "name": "chicken-drumsticks",
-          "description": "Delicious chicken drumsticks",
-          "file": "chicken-drumsticks.png",
-          "price": 5.0,
-          "type": 2
-        },
-        {
-          "id": 6,
-          "name": "minced-meat",
-          "description": "Quality minced meat",
-          "file": "minced-meat.png",
-          "price": 4.5,
-          "type": 2
-        },
-        {
-          "id": 7,
-          "name": "pork-chops",
-          "description": "Tender pork chops",
-          "file": "pork-chops.png",
-          "price": 6.0,
-          "type": 2
-        },
-        {
-          "id": 8,
-          "name": "steak",
-          "description": "Juicy steak",
-          "file": "steak.png",
-          "price": 7.5,
-          "type": 2
-        },
-        {
-          "id": 9,
-          "name": "cheese",
-          "description": "Delicious cheese",
-          "file": "cheese.png",
-          "price": 3.5,
-          "type": 3
-        },
-        {
-          "id": 10,
-          "name": "milk",
-          "description": "Fresh milk",
-          "file": "milk.png",
-          "price": 2.0,
-          "type": 3
-        },
-        {
-          "id": 11,
-          "name": "cream",
-          "description": "Smooth cream",
-          "file": "cream.png",
-          "price": 4.0,
-          "type": 3
-        },
-        {
-          "id": 12,
-          "name": "broccoli",
-          "description": "Nutritious broccoli",
-          "file": "broccoli.png",
-          "price": 1.5,
-          "type": 4
-        },
-        {
-          "id": 13,
-          "name": "carrot",
-          "description": "Fresh carrot",
-          "file": "carrot.png",
-          "price": 0.8,
-          "type": 4
-        },
-        {
-          "id": 14,
-          "name": "eggplant",
-          "description": "Versatile eggplant",
-          "file": "eggplant.png",
-          "price": 1.2,
-          "type": 4
-        },
-        {
-          "id": 15,
-          "name": "onion",
-          "description": "Flavorful onion",
-          "file": "onion.png",
-          "price": 0.5,
-          "type": 4
-        },
-        {
-          "id": 16,
-          "name": "tomato",
-          "description": "Juicy tomato",
-          "file": "tomato.png",
-          "price": 0.7,
-          "type": 4
-        },
-        {
-          "id": 17,
-          "name": "bread",
-          "description": "Freshly baked bread",
-          "file": "bread.png",
-          "price": 2.0,
-          "type": 5
-        },
-        {
-          "id": 18,
-          "name": "flour",
-          "description": "High-quality flour",
-          "file": "flour.png",
-          "price": 1.5,
-          "type": 5
-        },
-        {
-          "id": 19,
-          "name": "rice",
-          "description": "Premium rice",
-          "file": "rice.png",
-          "price": 3.0,
-          "type": 5
-        }
-      ],
-      "type": [
-        {
-          "id": 0,
-          "name": "Fruits",
-          "description": "The best fruit",
-          "file": "fruits.png"
-        },
-        {
-          "id": 1,
-          "name": "Meats",
-          "description": "High-quality meat",
-          "file": "meats.png"
-        },
-        {
-          "id": 2,
-          "name": "Dairy",
-          "description": "Delicious dairy products",
-          "file": "dairy.png"
-        },
-        {
-          "id": 3,
-          "name": "Vegetables",
-          "description": "Fresh and nutritious vegetables",
-          "file": "vegetables.png"
-        },
-        {
-          "id": 4,
-          "name": "Grain",
-          "description": "Healthy grain options",
-          "file": "grain.png"
-        }
-      ],
-      "cart": [
-        {
-          "id": 1,
-          "idUser":1,
-          "idItem":1
-        }
-      ]
-  }
-  
+  "user": [
+    {
+      "id": 0,
+      "firstName": "Gusstavo",
+      "lastName": "Fring",
+      "username": "Gus200",
+      "email": "gus@gmail.com",
+      "password": "password",
+      "file": "https://firebasestorage.googleapis.com/v0/b/vitalfresh-53b01.appspot.com/o/user%2FGus.png?alt=media&token=6999ba5c-148e-4ddf-b6fc-1a0188ac7410",
+      "money": "5000000",
+      "status": "admin"
+    },
+    {
+      "id": 1,
+      "firstName": "Hank",
+      "lastName": "Schrader",
+      "username": "Hank77",
+      "email": "hank@gmail.com",
+      "password": "password",
+      "file": "https://firebasestorage.googleapis.com/v0/b/vitalfresh-53b01.appspot.com/o/user%2FHank.png?alt=media&token=1f184f92-9dd3-4fcf-a65d-d103835a8cc5",
+      "money": "1000000",
+      "status": "user"
+    },
+    {
+      "id": 2,
+      "firstName": "Jesse",
+      "lastName": "Pinkman",
+      "username": "Jesse99",
+      "email": "jesse@gmail.com",
+      "password": "password",
+      "file": "https://firebasestorage.googleapis.com/v0/b/vitalfresh-53b01.appspot.com/o/user%2FJesse.png?alt=media&token=90d91b0f-7fa2-472a-ba2e-b9e30d427d1e",
+      "money": "500000",
+      "status": "user"
+    },
+    {
+      "id": 3,
+      "firstName": "Mike",
+      "lastName": "Ehrmantraut",
+      "username": "Mike55",
+      "email": "mike@gmail.com",
+      "password": "password",
+      "file": "https://firebasestorage.googleapis.com/v0/b/vitalfresh-53b01.appspot.com/o/user%2FMike.png?alt=media&token=e3b28975-a518-4637-803c-41bd41083885",
+      "money": "2000000",
+      "status": "user"
+    },
+    {
+      "id": 4,
+      "firstName": "Saul",
+      "lastName": "Goodman",
+      "username": "SaulBetterCall",
+      "email": "saul@gmail.com",
+      "password": "password",
+      "file": "https://firebasestorage.googleapis.com/v0/b/vitalfresh-53b01.appspot.com/o/user%2FSaul.png?alt=media&token=96a67994-e001-4bdd-8d44-80e77761ba9a",
+      "money": "3000000",
+      "status": "user"
+    },
+    {
+      "id": 5,
+      "firstName": "Skyler",
+      "lastName": "White",
+      "username": "SkylerBlue",
+      "email": "skyler@gmail.com",
+      "password": "password",
+      "file": "https://firebasestorage.googleapis.com/v0/b/vitalfresh-53b01.appspot.com/o/user%2FSkyler.png?alt=media&token=b9f61790-b6f7-4825-b89f-2f4a841bf8c3",
+      "money": "4000000",
+      "status": "user"
+    },
+    {
+      "id": 6,
+      "firstName": "Walter",
+      "lastName": "White",
+      "username": "Heisenberg",
+      "email": "walter@gmail.com",
+      "password": "password",
+      "file": "https://firebasestorage.googleapis.com/v0/b/vitalfresh-53b01.appspot.com/o/user%2FWalt.png?alt=media&token=259f0c74-d6c3-419c-a98d-99053c319e1e",
+      "money": "6000000",
+      "status": "user"
+    },
+    {
+      "id": 7,
+      "firstName": "Walter Jr.",
+      "lastName": "White",
+      "username": "Flynn2000",
+      "email": "flynn@gmail.com",
+      "password": "password",
+      "file": "https://firebasestorage.googleapis.com/v0/b/vitalfresh-53b01.appspot.com/o/user%2FWalter-Jr.png?alt=media&token=148c2b1d-a622-4a58-949c-b5e0cdae38b6",
+      "money": "100000",
+      "status": "user"
+    }
+  ],
+  "item": [
+    {
+      "id": 0,
+      "name": "apple",
+      "description": "Good apple",
+      "file": "apple.png",
+      "price": 2.5,
+      "type": 1
+    },
+    {
+      "id": 1,
+      "name": "banana",
+      "description": "Tasty banana",
+      "file": "banana.png",
+      "price": 1.5,
+      "type": 1
+    },
+    {
+      "id": 2,
+      "name": "orange",
+      "description": "Juicy orange",
+      "file": "orange.png",
+      "price": 2.0,
+      "type": 1
+    },
+    {
+      "id": 3,
+      "name": "grapes",
+      "description": "Sweet grapes",
+      "file": "grapes.png",
+      "price": 3.0,
+      "type": 1
+    },
+    {
+      "id": 4,
+      "name": "pear",
+      "description": "Fresh pear",
+      "file": "pear.png",
+      "price": 1.8,
+      "type": 1
+    },
+    {
+      "id": 5,
+      "name": "chicken-drumsticks",
+      "description": "Delicious chicken drumsticks",
+      "file": "chicken-drumsticks.png",
+      "price": 5.0,
+      "type": 2
+    },
+    {
+      "id": 6,
+      "name": "minced-meat",
+      "description": "Quality minced meat",
+      "file": "minced-meat.png",
+      "price": 4.5,
+      "type": 2
+    },
+    {
+      "id": 7,
+      "name": "pork-chops",
+      "description": "Tender pork chops",
+      "file": "pork-chops.png",
+      "price": 6.0,
+      "type": 2
+    },
+    {
+      "id": 8,
+      "name": "steak",
+      "description": "Juicy steak",
+      "file": "steak.png",
+      "price": 7.5,
+      "type": 2
+    },
+    {
+      "id": 9,
+      "name": "cheese",
+      "description": "Delicious cheese",
+      "file": "cheese.png",
+      "price": 3.5,
+      "type": 3
+    },
+    {
+      "id": 10,
+      "name": "milk",
+      "description": "Fresh milk",
+      "file": "milk.png",
+      "price": 2.0,
+      "type": 3
+    },
+    {
+      "id": 11,
+      "name": "cream",
+      "description": "Smooth cream",
+      "file": "cream.png",
+      "price": 4.0,
+      "type": 3
+    },
+    {
+      "id": 12,
+      "name": "broccoli",
+      "description": "Nutritious broccoli",
+      "file": "broccoli.png",
+      "price": 1.5,
+      "type": 4
+    },
+    {
+      "id": 13,
+      "name": "carrot",
+      "description": "Fresh carrot",
+      "file": "carrot.png",
+      "price": 0.8,
+      "type": 4
+    },
+    {
+      "id": 14,
+      "name": "eggplant",
+      "description": "Versatile eggplant",
+      "file": "eggplant.png",
+      "price": 1.2,
+      "type": 4
+    },
+    {
+      "id": 15,
+      "name": "onion",
+      "description": "Flavorful onion",
+      "file": "onion.png",
+      "price": 0.5,
+      "type": 4
+    },
+    {
+      "id": 16,
+      "name": "tomato",
+      "description": "Juicy tomato",
+      "file": "tomato.png",
+      "price": 0.7,
+      "type": 4
+    },
+    {
+      "id": 17,
+      "name": "bread",
+      "description": "Freshly baked bread",
+      "file": "bread.png",
+      "price": 2.0,
+      "type": 5
+    },
+    {
+      "id": 18,
+      "name": "flour",
+      "description": "High-quality flour",
+      "file": "flour.png",
+      "price": 1.5,
+      "type": 5
+    },
+    {
+      "id": 19,
+      "name": "rice",
+      "description": "Premium rice",
+      "file": "rice.png",
+      "price": 3.0,
+      "type": 5
+    }
+  ],
+  "type": [
+    {
+      "id": 0,
+      "name": "Fruits",
+      "description": "The best fruit",
+      "file": "fruits.png"
+    },
+    {
+      "id": 1,
+      "name": "Meats",
+      "description": "High-quality meat",
+      "file": "meats.png"
+    },
+    {
+      "id": 2,
+      "name": "Dairy",
+      "description": "Delicious dairy products",
+      "file": "dairy.png"
+    },
+    {
+      "id": 3,
+      "name": "Vegetables",
+      "description": "Fresh and nutritious vegetables",
+      "file": "vegetables.png"
+    },
+    {
+      "id": 4,
+      "name": "Grain",
+      "description": "Healthy grain options",
+      "file": "grain.png"
+    }
+  ],
+  "cart": [
+    {
+      "id": 1,
+      "idUser": 1,
+      "idItem": 1
+    }
+  ]
+}

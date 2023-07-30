@@ -1,19 +1,48 @@
 import { User } from "../entities/user";
-import { deleteUserData, getUserData, getUsersData } from "../repository/userRepo";
+import {
+  addNewUser,
+  deleteUserData,
+  getUserData,
+  getUsersData,
+} from "../repository/userRepo";
 
 export const getUsers = () => {
   const users = getUsersData();
   return users;
 };
 
-export const getUser = (userId:number) => {
+export const getUser = (userId: number) => {
   const users = getUserData(userId);
   return users;
 };
 
-export const deleteUser = (userId:number) => {
-  deleteUserData(userId)
-}
+export const addUser = (
+  email: string,
+  file: string,
+  firstName: string,
+  id: Number,
+  lastName: string,
+  money: string,
+  password: string,
+  status: string,
+  username: string
+) => {
+  addNewUser(
+    email,
+    file,
+    firstName,
+    id,
+    lastName,
+    money,
+    password,
+    status,
+    username
+  );
+};
+
+export const deleteUser = (userId: number, userFile: string) => {
+  deleteUserData(userId, userFile);
+};
 
 export const getUserByUsername = (username: string) => {
   const users = getUsersData();

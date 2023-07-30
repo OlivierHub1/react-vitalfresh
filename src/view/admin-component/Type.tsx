@@ -34,7 +34,7 @@ export const Type = () => {
       <section className="container bg-green-shadow rounded mt-5 mb-3 pb-5">
         <h1 className="text-center text-white">Add new type</h1>
         <form className="mx-5">
-          <div className="form-group w-75 my-2">
+          <div className="form-group my-2">
             <label htmlFor="exampleInputEmail1">Name</label>
             <input
               type="text"
@@ -42,7 +42,7 @@ export const Type = () => {
               placeholder="Enter name"
             />
           </div>
-          <div className="form-group w-75 my-2">
+          <div className="form-group my-2">
             <label htmlFor="exampleDescription">Description</label>
             <input
               type="text"
@@ -50,7 +50,7 @@ export const Type = () => {
               placeholder="Enter description"
             />
           </div>
-          <div className="form-group w-75 my-5">
+          <div className="form-group my-5">
             <input
               className="form-control form-control-lg"
               id="formFileLg"

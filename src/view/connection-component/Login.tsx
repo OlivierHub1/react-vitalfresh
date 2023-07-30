@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Login.css";
-import { UserService } from "../../assets/service/userService";
+import { User } from "../../assets/entities/user";
+import { getUsers } from "../../assets/service/userService";
 
 export const Login = () => {
   //Get user
-  const userService = new UserService();
+  const usersData = getUsers();
+  console.log(usersData)
+  //const userService = new UserService();
 
   //Login State
   const [username, setUsername] = useState("");
@@ -18,7 +21,7 @@ export const Login = () => {
     // Perform authentication logic here, e.g., send a request to your API
 
     // Simulating a successful login
-    if (userService.verifyUserExist(username, password)) {
+    if (verifyUserExist(username, password, usersData)) {
       // Set the session or authentication token
       window;
       localStorage.setItem("userName", username);
@@ -62,3 +65,10 @@ export const Login = () => {
     </div>
   );
 };
+
+function verifyUserExist(username, password, usersData:User[]){
+  const user = usersData.find(
+    (user) => user.username === username && user.password === password
+  );
+  return user !== undefined;
+}

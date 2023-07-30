@@ -1,54 +1,29 @@
-import React, { useState, useEffect } from "react";
-import {uid} from "uid";
-import { getDatabase, child, ref, get, onValue } from "firebase/database";
-import userData from '../data/user.json';
-import { User } from '../entities/user';
+import { User } from "../entities/user";
+import { deleteUserData, getUserData, getUsersData } from "../repository/userRepo";
 
-/*const userDb = firebase.ref('user');
-userDb.on('value', (snapshot) => {
-  let users = snapshot.val();
-})*/
+export const getUsers = () => {
+  const users = getUsersData();
+  return users;
+};
 
-export class UserService {
-  users = userData.user.map((userData) => new User(
-    userData.id,
-    userData.firstName,
-    userData.lastName,
-    userData.username,
-    userData.email,
-    userData.password,
-    userData.file,
-    userData.money,
-    userData.status
-  ));
+export const getUser = (userId:number) => {
+  const users = getUserData(userId);
+  return users;
+};
 
-  getUsers() {
-    return this.users;
-  }
-
-  addUser(newUser) {
-    const user = new User(
-      newUser.id,
-      newUser.firstName,
-      newUser.lastName,
-      newUser.username,
-      newUser.email,
-      newUser.password,
-      newUser.file,
-      newUser.money,
-      newUser.status
-    );
-
-    this.users.push(user);
-  }
-
-  verifyUserExist(username, password) {
-    const user = this.users.find((user) => user.username === username && user.password === password);
-    return user !== undefined;
-  }
-
-  getUserByUsername(username) {
-    return this.users.find((user) => user.username === username);
-  }
+export const deleteUser = (userId:number) => {
+  deleteUserData(userId)
 }
 
+export const getUserByUsername = (username: string) => {
+  const users = getUsersData();
+  return users.find((user) => user.username === username);
+};
+
+export const verifyUserExist = (username: string, password: string) => {
+  const users = getUsersData();
+  const user = users.find(
+    (user) => user.username === username && user.password === password
+  );
+  return user !== undefined;
+};

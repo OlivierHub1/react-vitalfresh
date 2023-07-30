@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Footnote } from "../footnote-component/Footnote";
-import data from "../../assets/data/type.json";
+import { TypeService } from "../../assets/service/typeService";
 import { Outlet, useNavigate } from "react-router-dom";
 
 export const Shop = () => {
-
+  //Get type
+  const typeService = new TypeService();
+  const types = typeService.getTypes();
   //Navigation
   const navigate = useNavigate();
 
@@ -78,7 +80,7 @@ export const Shop = () => {
             onChange={handleSelectChange}
           >
             <option disabled>Select type</option>
-            {data.type.map((type) => (
+            {types.map((type) => (
               <option key={type.id} value={type.id}>
                 {type.name}
               </option>

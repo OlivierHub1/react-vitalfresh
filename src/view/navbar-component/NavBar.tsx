@@ -2,19 +2,12 @@ import React, { useEffect, useState } from "react";
 import { NavLink, Outlet, Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-import { UserService } from "../../assets/service/userService";
+import { getUsers } from "../../assets/service/userService";
 import "/src/assets/mystyle.css";
 import "./Navbar.css";
-
-//Get user
-const userService = new UserService();
-const userData = userService.getUserByUsername(localStorage.getItem("userName"));
-let isAdmin = false;
-
-//Set localStorage for data
-/*localStorage.setItem();
-localStorage.setItem();
-localStorage.setItem();*/
+import { Console } from "console";
+import { User } from "../../assets/entities/user";
+import { getUserData } from "../../assets/repository/userRepo";
 
 //Handle logout
 const handleLogut = () => {
@@ -24,31 +17,50 @@ const handleLogut = () => {
 };
 
 export const NavBar = () => {
+  //Get user
+  //const userService = new UserService();
+  //const users = userService.getUsers();
+  //const userData = getUserByUsername(localStorage.getItem("userName"));
+  //console.log(userData);
+  //console.log(userData.file);
   // Control size mobile (768) responsive
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [isConnected, setIsConnected] = useState(false);
+  const [userFile, setUserFile] = useState("");
 
-  //Responsive
+  //Get User
+  const users = getUsers();
+  const [userData, setUserData] = useState<User | null>(null);
+
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
+    const username = localStorage.getItem("userName");
+    const userProfileData = getUserByUsername(username, users);
+    setIsConnected(username != null);
+    setUserData(userProfileData);
   }, []);
 
-  //Verify user connection
-  const isConnected = localStorage.getItem("userName") != null;
+  //console.log(userData)
 
-  //Verify admin
-  if(isConnected){
-    isAdmin = userData.status == "admin";
-  }
-  
-  
+  /*if (!userData) {
+    return (
+      <div className="d-flex justify-content-center align-items-center vh-100">
+        <div className="spinner-border text-success" role="status">
+        </div>
+      </div>
+    );
+  }*/
+
+  //console.log(userData)
+  //const username = localStorage.getItem("userName");
+  //setIsConnected(username != null);
+
+  /*if(isConnected){
+    //setUserData(userData => userData = getUserData(0))
+    setIsAdmin(userData.status == "admin")
+    setUserFile(userData.file)
+  }*/
+
   return (
     <>
       <header>
@@ -73,7 +85,7 @@ export const NavBar = () => {
               <a className="navbar-brand mt-2 mt-lg-0" href="#">
                 <img
                   src="/src/assets/images/logos/vitalfresh-white.png"
-                  className={isMobile ? "mx-auto d-block": ""}
+                  className={isMobile ? "mx-auto d-block" : ""}
                   height="15"
                   alt="VitalFresh-Logo"
                   loading="lazy"
@@ -83,22 +95,32 @@ export const NavBar = () => {
 
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <a className={`nav-link ${isMobile ? "text-center": ""}`}>
+                  <a className={`nav-link ${isMobile ? "text-center" : ""}`}>
                     VITALFRESH
                   </a>
                 </li>
                 {renderNavLink(true, "HOME", "/", isMobile)}
                 {renderNavLink(true, "SHOP", "shop", isMobile)}
                 {renderNavLink(isConnected, "PROFILE", "profile", isMobile)}
-                {renderNavLink(isAdmin, "ADMIN", "admin", isMobile)}
+                {renderNavLink(true, "ADMIN", "admin", isMobile)}
               </ul>
             </div>
 
             <div className="d-flex align-self-center">
-              {renderConnectionLink(!isConnected, "login", "Login", "btn-dark p-2")}
-              {renderConnectionLink(!isConnected, "signup", "Sign Up", "btn-light p-2")}
+              {renderConnectionLink(
+                !isConnected,
+                "login",
+                "Login",
+                "btn-dark p-2"
+              )}
+              {renderConnectionLink(
+                !isConnected,
+                "signup",
+                "Sign Up",
+                "btn-light p-2"
+              )}
               {renderCartLink(isConnected, "cart", "")}
-              {renderProfileLink(isConnected, "")}
+              {renderProfileLink(isConnected, "", userFile)}
             </div>
           </div>
         </nav>
@@ -112,10 +134,15 @@ export const NavBar = () => {
 };
 
 //Render nav-item
-function renderNavLink(condition: boolean, name: string, link: string, isMobile:boolean) {
+function renderNavLink(
+  condition: boolean,
+  name: string,
+  link: string,
+  isMobile: boolean
+) {
   if (condition) {
     return (
-      <li className={`nav-item ${isMobile ? "text-center":""}`}>
+      <li className={`nav-item ${isMobile ? "text-center" : ""}`}>
         <NavLink to={link} className="nav-link rounded">
           {name}
         </NavLink>
@@ -157,7 +184,7 @@ function renderCartLink(condition: boolean, link: string, style: string) {
   return null;
 }
 
-function renderProfileLink(condition: boolean, style:string) {
+function renderProfileLink(condition: boolean, style: string, file:string) {
   if (condition) {
     return (
       <div className={"dropdown" + style}>
@@ -170,7 +197,7 @@ function renderProfileLink(condition: boolean, style:string) {
           aria-expanded="false"
         >
           <img
-            src={"/src/assets/images/user/" + userData.file}
+            src={"/src/assets/images/user/" + file}
             className="rounded-circle"
             height="25"
             width="25"
@@ -188,7 +215,11 @@ function renderProfileLink(condition: boolean, style:string) {
             </Link>
           </li>
           <li>
-            <Link className="dropdown-item text-black" to={"/"} onClick={handleLogut}>
+            <Link
+              className="dropdown-item text-black"
+              to={"/"}
+              onClick={handleLogut}
+            >
               Logout
             </Link>
           </li>
@@ -197,4 +228,8 @@ function renderProfileLink(condition: boolean, style:string) {
     );
   }
   return null;
+}
+
+function getUserByUsername(username: string, users: User[]) {
+  return users.find((user) => user.username === username);
 }

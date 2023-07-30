@@ -7,19 +7,24 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
-import { UserService } from "../../assets/service/userService";
+import { deleteUser, getUsers } from "../../assets/service/userService";
 
 export const User = () => {
   // Control size mobile (768) responsive
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 76);
 
   //Get user
-  const userService = new UserService();
-  const users = userService.getUsers();
+  //const userService = new UserService();
+  const users = getUsers();
 
   //Set User
   const [items, setUsers] = useState([]);
   const [newItemName, setNewUserName] = useState("");
+
+  //Delete User
+  const handleDeleteUser = (userId: number) => {
+    deleteUser(userId);
+  };
 
   //UseEffect
   useEffect(() => {
@@ -39,7 +44,7 @@ export const User = () => {
       <section className="container bg-green-shadow rounded mt-5 mb-3 pb-5">
         <h1 className="text-center text-white">Add new user</h1>
         <form className="mx-5">
-          <div className="form-group w-75 my-2">
+          <div className="form-group my-2">
             <label htmlFor="exampleInputEmail1">Name</label>
             <input
               type="name"
@@ -47,7 +52,7 @@ export const User = () => {
               placeholder="Enter name"
             />
           </div>
-          <div className="form-group w-75 my-2">
+          <div className="form-group my-2">
             <label htmlFor="exampleDescription">Description</label>
             <input
               type="name"
@@ -55,7 +60,7 @@ export const User = () => {
               placeholder="Enter description"
             />
           </div>
-          <div className="form-group w-75 my-2">
+          <div className="form-group my-2">
             <label htmlFor="exampleDescription">Price</label>
             <input
               type="number"
@@ -63,12 +68,9 @@ export const User = () => {
               placeholder="Enter price"
             />
           </div>
-          <div className="form-group w-75 my-2">
+          <div className="form-group my-2">
             <label htmlFor="exampleDescription">Choose type</label>
-            <select
-              className="form-select w-75"
-              aria-label="Default select example"
-            >
+            <select className="form-select" aria-label="Default select example">
               <option selected>Type</option>
               <option value="1">One</option>
               <option value="2">Two</option>
@@ -93,39 +95,55 @@ export const User = () => {
       <section className="container home-products bg-green-shadow rounded mt-5 mb-3 pb-5">
         <h1 className="text-center">User List</h1>
 
-        {users.map((user) => (
-          <div className="row justify-content-center bg-light rounded m-5 p-2">
-            <div className={"col align-self-center"}>
-              <img
-                src={"/src/assets/images/user/" + user.file}
-                alt={user.username}
-                className="img-round"
-              />
-            </div>
+        {users
+          .filter((user) => user.status == "user") // Filter out the user with id 0
+          .map((user) => (
             <div
-              className={`align-self-center ${
-                isMobile ? "col-12 text-center my-3" : "col"
-              }`}
+              className="row justify-content-center bg-light rounded m-5 p-2"
+              key={user.id}
             >
-              <span className="btn btn-dark">{user.username}</span>
+              <div className={"col align-self-center"}>
+                <img
+                  src={user.file}
+                  alt={user.username}
+                  className="img-round"
+                />
+              </div>
+              <div
+                className={`align-self-center ${
+                  isMobile ? "col-12 text-center my-3" : "col"
+                }`}
+              >
+                <span className="btn btn-dark">{user.username}</span>
+              </div>
+              <div className="col align-self-center">
+                <button className="btn-remove-style">
+                  <FontAwesomeIcon
+                    className="blue-hover"
+                    icon={faPenToSquare}
+                    size="2xl"
+                  />
+                </button>
+              </div>
+              <div className="col align-self-center">
+                <button className="btn-remove-style">
+                  <FontAwesomeIcon icon={faUser} size="2xl" />
+                </button>
+              </div>
+              <div className="col align-self-center">
+                <button
+                  className="btn-remove-style"
+                  onClick={() => handleDeleteUser(Number(user.id))}
+                >
+                  <FontAwesomeIcon
+                    className="red-hover"
+                    icon={faTrash}
+                    size="2xl"
+                  />
+                </button>
+              </div>
             </div>
-            <div className="col align-self-center">
-              <button className="btn-remove-style">
-                <FontAwesomeIcon className="blue-hover" icon={faPenToSquare} size="2xl" />
-              </button>
-            </div>
-            <div className="col align-self-center">
-              <button className="btn-remove-style">
-                <FontAwesomeIcon icon={faUser} size="2xl" />
-              </button>
-            </div>
-            <div className="col align-self-center">
-              <button className="btn-remove-style">
-                <FontAwesomeIcon className="red-hover" icon={faTrash} size="2xl" />
-              </button>
-            </div>
-          </div>
-        ))}
+          ))}
       </section>
     </>
   );

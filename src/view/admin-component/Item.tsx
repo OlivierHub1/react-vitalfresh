@@ -30,7 +30,7 @@ export const Item = () => {
       <section className="container bg-green-shadow rounded mt-5 mb-3 pb-5">
         <h1 className="text-center text-white">Add new type</h1>
         <form className="mx-5">
-          <div className="form-group w-75 my-2">
+          <div className="form-group my-2">
             <label htmlFor="exampleInputEmail1">Name</label>
             <input
               type="name"
@@ -38,7 +38,7 @@ export const Item = () => {
               placeholder="Enter name"
             />
           </div>
-          <div className="form-group w-75 my-2">
+          <div className="form-group my-2">
             <label htmlFor="exampleDescription">Description</label>
             <input
               type="name"
@@ -46,7 +46,7 @@ export const Item = () => {
               placeholder="Enter description"
             />
           </div>
-          <div className="form-group w-75 my-2">
+          <div className="form-group my-2">
             <label htmlFor="exampleDescription">Price</label>
             <input
               type="number"
@@ -54,9 +54,9 @@ export const Item = () => {
               placeholder="Enter price"
             />
           </div>
-          <div className="form-group w-75 my-2">
+          <div className="form-group my-2">
           <label htmlFor="exampleDescription">Choose type</label>
-            <select className="form-select w-75" aria-label="Default select example">
+            <select className="form-select" aria-label="Default select example">
               <option selected>Type</option>
               <option value="1">One</option>
               <option value="2">Two</option>

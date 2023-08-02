@@ -3,6 +3,7 @@ import "./Profile.css";
 import { Footnote } from "../footnote-component/Footnote";
 import { getUsers } from "../../assets/service/userService";
 import { User } from "../../assets/entities/user";
+import { Link } from "react-router-dom";
 
 export const Profile = () => {
   const users = getUsers();
@@ -14,12 +15,12 @@ export const Profile = () => {
     setUserData(userProfileData);
   }, [users]);
 
+  console.log(users);
+
   if (!userData) {
     return (
       <div className="d-flex justify-content-center align-items-center vh-100">
-        <div className="spinner-border text-success" role="status">
-          <span className="sr-only">Loading...</span>
-        </div>
+        <div className="spinner-border text-success" role="status"></div>
       </div>
     );
   }
@@ -32,7 +33,7 @@ export const Profile = () => {
             <div className="h-100 d-flex align-items-center">
               <img
                 className="rounded-circle mx-auto d-block"
-                src={"/src/assets/images/user/" + userData.file}
+                src={userData.file}
               />
             </div>
           </div>
@@ -60,9 +61,7 @@ export const Profile = () => {
                 </div>
               </div>
               <div className="mt-5 text-right">
-                <button className="btn btn-dark" type="button">
-                  Save Profile
-                </button>
+                {renderBtnAdmin(userData.status)}
               </div>
             </div>
           </div>
@@ -76,4 +75,16 @@ export const Profile = () => {
 
 function getUserByUsername(username: string, users: User[]) {
   return users.find((user) => user.username === username);
+}
+
+function renderBtnAdmin(condition: string) {
+  if (condition == "admin") {
+    return (
+      <Link to={"/admin"} className="btn btn-dark">
+        Edit data
+      </Link>
+    );
+  }
+
+  return null;
 }

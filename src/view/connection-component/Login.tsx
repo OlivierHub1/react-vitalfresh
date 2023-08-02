@@ -17,20 +17,16 @@ export const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-
-    // Perform authentication logic here, e.g., send a request to your API
-
-    // Simulating a successful login
     if (verifyUserExist(username, password, usersData)) {
-      // Set the session or authentication token
       window;
       localStorage.setItem("userName", username);
 
-      // Redirect to the home page or any other authenticated route
+      if (verifyUserStatus(username, usersData)) {
+        localStorage.setItem("admin", "admin");
+      }
 
       window.location.href = "/";
     } else {
-      // Show an error message for unsuccessful login
       setError("Invalid username or password");
     }
   };
@@ -71,4 +67,11 @@ function verifyUserExist(username, password, usersData:User[]){
     (user) => user.username === username && user.password === password
   );
   return user !== undefined;
+}
+
+function verifyUserStatus(username, usersData:User[]){
+  const user = usersData.find(
+    (user) => user.username === username
+  );
+  return user.status == "admin";
 }

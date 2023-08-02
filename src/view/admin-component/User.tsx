@@ -2,11 +2,8 @@ import React, { useState, useEffect } from "react";
 import {
   faPenToSquare,
   faTrash,
-  faUser,
-  faUserSlash,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "react-router-dom";
 import { addUser, deleteUser, getUsers } from "../../assets/service/userService";
 import { uploadBytes, getDownloadURL } from "@firebase/storage";
 import { ref } from "firebase/storage";
@@ -198,11 +195,6 @@ export const User = () => {
                     icon={faPenToSquare}
                     size="2xl"
                   />
-                </button>
-              </div>
-              <div className="col align-self-center">
-                <button className="btn-remove-style">
-                  <FontAwesomeIcon icon={faUser} size="2xl" />
                 </button>
               </div>
               <div className="col align-self-center">

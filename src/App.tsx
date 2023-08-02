@@ -35,6 +35,7 @@ import { File } from "./view/a-test/File";
 
 //Verify user connection
 const isConnected = localStorage.getItem("userName") != null;
+const isAdmin = localStorage.getItem("admin") == "admin";
 
 function App() {
   const router = createBrowserRouter(
@@ -46,7 +47,7 @@ function App() {
           <Route path=":id" element={<ShopSelect />}/>
           <Route path="search/:search" element={<ShopSearch />} />
         </Route>
-        <Route path="admin" element={Error ? <Admin /> : <NotFound/>}>
+        <Route path="admin" element={isAdmin ? <Admin /> : <NotFound/>}>
           <Route path="user" element={<User />} />
           <Route path="type" element={<Type />} />
           <Route path="item" element={<Item />} />

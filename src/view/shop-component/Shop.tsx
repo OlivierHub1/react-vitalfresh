@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Footnote } from "../footnote-component/Footnote";
-import { TypeService } from "../../assets/service/typeService";
 import { Outlet, useNavigate } from "react-router-dom";
+import { getTypes } from "../../assets/service/typeService";
 
 export const Shop = () => {
   //Get type
-  const typeService = new TypeService();
-  const types = typeService.getTypes();
+  const types = getTypes();
   //Navigation
   const navigate = useNavigate();
 

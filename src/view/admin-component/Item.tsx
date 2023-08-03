@@ -2,13 +2,16 @@ import { faPenToSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { ItemService } from "../../assets/service/itemService";
+import { deleteItem, getItems } from "../../assets/service/itemService";
 
 export const Item = () => {
   //Get item
-  const itemService = new ItemService();
-  const items = itemService.getItems();
+  const items = getItems();
   
+  //Delete Item
+  const handleDeleteItem = (itemId: number, itemFile:string) => {
+    deleteItem(itemId, itemFile);
+  };
 
   // Control size mobile (768) responsive
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
@@ -28,7 +31,7 @@ export const Item = () => {
   return (
     <>
       <section className="container bg-green-shadow rounded mt-5 mb-3 pb-5">
-        <h1 className="text-center text-white">Add new type</h1>
+        <h1 className="text-center text-white">Add new item</h1>
         <form className="mx-5">
           <div className="form-group my-2">
             <label htmlFor="exampleInputEmail1">Name</label>
@@ -87,7 +90,7 @@ export const Item = () => {
           <div className="row justify-content-center bg-light rounded m-5 p-2">
           <div className={`col align-self-center ${isMobile ? "mx-4" : ""}`}>
             <img
-              src={"/src/assets/images/product/" + itemService.getItemsByType(item.type) + "/" + item.file}
+              src={item.file}
               alt={item.name}
               className="img-round"
             />
@@ -98,17 +101,17 @@ export const Item = () => {
             }`}
           >
             <Link to={"/shop/search/" + item.name} className="btn btn-dark">
-              {itemService.getItemsByType(item.type)}
+              {item.name}
             </Link>
           </div>
           <div className="col align-self-center">
             <button className="btn-remove-style">
-              <FontAwesomeIcon icon={faPenToSquare} size="2xl" />
+              <FontAwesomeIcon className="blue-hover" icon={faPenToSquare} size="2xl" />
             </button>
           </div>
           <div className="col align-self-center">
             <button className="btn-remove-style">
-              <FontAwesomeIcon icon={faTrash} size="2xl" />
+              <FontAwesomeIcon className="red-hover" icon={faTrash} size="2xl" onClick={() => handleDeleteItem(Number(item.id), item.file)}/>
             </button>
           </div>
         </div>

@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import data from "../../assets/data/item.json";
-import { ItemService } from '../../assets/service/itemService';
+import { getItems } from "../../assets/service/itemService";
 
 export const ShopAll = () => {
   //Get item
-  const itemService = new ItemService();
-  const items = itemService.getItems();
+  const items = getItems();
 
   // Control size mobile (768) responsive
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
@@ -31,21 +30,12 @@ export const ShopAll = () => {
           {items.map((item) => (
             <div className="col mb-2" key={item.id}>
               <div className="card p-2">
-                <img
-                  src={
-                    "/src/assets/images/product/" +
-                    itemService.getItemsByType(item.type) +
-                    "/" +
-                    item.file
-                  }
-                  alt={item.name}
-                  className="img-fluid"
-                />
+                <img src={item.file} alt={item.name} className="img-fluid" />
                 <div className="container justify-content-center">
                   <h4>
                     <b>{item.name}</b>
                   </h4>
-                  <p>{itemService.getItemsByType(item.type) + " | " + item.price + "$"}</p>
+                  <p>{item.type + " | " + item.price + "$"}</p>
                   <button className="btn btn-dark w-100">ADD TO CART</button>
                 </div>
               </div>

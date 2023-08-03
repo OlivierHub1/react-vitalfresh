@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import data from "../../assets/data/item.json";
-import { ItemService } from "../../assets/service/itemService";
+import { getItems } from "../../assets/service/itemService";
 
 export const ShopSearch = () => {
   //Get item
-  const itemService = new ItemService();
-  const items = itemService.getItems();
+  const items = getItems();
 
   //Get item by type with the id of the type
   const { search } = useParams();
@@ -34,9 +33,11 @@ export const ShopSearch = () => {
 
         {items.filter((item) => item.name.includes(search) || search === "")
           .length === 0 && (
-          <h2 className="text-center text-danger bg-dark rounded">No result for: {search}</h2>
+          <h2 className="text-center text-danger bg-dark rounded">
+            No result for: {search}
+          </h2>
         )}
-        
+
         <div className={isMobile ? "row row-cols-1 g-1" : "row row-cols-3 g-3"}>
           {items.map((item) => {
             if (item.name.includes(search) || search === "") {
@@ -44,12 +45,7 @@ export const ShopSearch = () => {
                 <div className="col mb-2" key={item.id}>
                   <div className="card p-2">
                     <img
-                      src={
-                        "/src/assets/images/product/" +
-                        itemService.getItemsByType(item.type) +
-                        "/" +
-                        item.file
-                      }
+                      src={item.file}
                       alt={item.name}
                       className="img-fluid"
                     />
@@ -57,12 +53,7 @@ export const ShopSearch = () => {
                       <h4>
                         <b>{item.name}</b>
                       </h4>
-                      <p>
-                        {itemService.getItemsByType(item.type) +
-                          " | " +
-                          item.price +
-                          "$"}
-                      </p>
+                      <p>{item.type + " | " + item.price + "$"}</p>
                       <button className="btn btn-dark w-100">
                         ADD TO CART
                       </button>

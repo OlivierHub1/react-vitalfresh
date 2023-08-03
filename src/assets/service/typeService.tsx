@@ -1,15 +1,24 @@
-import { Type } from '../entities/type';
-import typeData from '../data/type.json';
+import { Type } from "../entities/type";
+import {
+  addNewType,
+  deleteTypeData,
+  getTypesData,
+} from "../repository/typeRepo";
 
-export class TypeService {
-  private types: Type[] = typeData.type.map((typeData) => new Type(
-    typeData.id,
-    typeData.name,
-    typeData.description,
-    typeData.file
-  ));
+export const getTypes = () => {
+  const types = getTypesData();
+  return types;
+};
 
-  getTypes(): Type[] {
-    return this.types;
-  }
-}
+export const addType = (
+  description: string,
+  file: string,
+  id: number,
+  name: string
+) => {
+  addNewType(description, file, id, name);
+};
+
+export const deleteType = (typeId: number, typeFile: string) => {
+  deleteTypeData(typeId, typeFile);
+};

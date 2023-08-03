@@ -79,7 +79,7 @@ export const deleteUserData = (userId: number, userFile: string) => {
   const usersRef = ref(db, "user/" + userId);
 
   //Delete file
-  const startIndex = userFile.lastIndexOf("%2F") + 3; // Find the last occurrence of "%2F" and add 3 to skip it.
+  const startIndex = userFile.lastIndexOf("%2F") + 3;
   const endIndex = userFile.indexOf("?");
   const userRefStorage = storageRef(
     storage,

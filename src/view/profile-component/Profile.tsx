@@ -4,6 +4,7 @@ import { Footnote } from "../footnote-component/Footnote";
 import { getUsers } from "../../assets/service/userService";
 import { User } from "../../assets/entities/user";
 import { Link } from "react-router-dom";
+import "./Profile.css"
 
 export const Profile = () => {
   const users = getUsers();
@@ -27,12 +28,12 @@ export const Profile = () => {
 
   return (
     <>
-      <div className="container rounded bg-green-shadow rounded mt-5 mb-5">
+      <div className="profile container rounded bg-green-shadow rounded mt-5 mb-5">
         <div className="row">
           <div className="col-md-4 border-right bg-dark rounded">
             <div className="h-100 d-flex align-items-center">
               <img
-                className="rounded-circle mx-auto d-block"
+                className="rounded-circle mx-auto d-block m-3"
                 src={userData.file}
               />
             </div>
@@ -57,7 +58,7 @@ export const Profile = () => {
                 </div>
                 <div className="col-md-6">
                   <label htmlFor="">Money</label>
-                  <p className="text-white">{userData.money}</p>
+                  <p className="text-white">{userData.money + "$"}</p>
                 </div>
               </div>
               <div className="mt-5 text-right">

@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Footnote } from "../footnote-component/Footnote";
 import "./Home.css";
-import { TypeService } from '../../assets/service/typeService';
+import { getTypes } from "../../assets/service/typeService";
 import { Link } from "react-router-dom";
 
 export const Home = () => {
   //Get type
-  const typeService = new TypeService();
-  const types = typeService.getTypes();
+  const types = getTypes();
 
   // Control size mobile (768) responsive
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
@@ -61,7 +60,7 @@ export const Home = () => {
               <div className="col">
                 <div className="card">
                   <img
-                    src={"src/assets/images/product/type/" + type.file}
+                    src={type.file}
                     className="card-img-top"
                     alt="Hollywood Sign on The Hill"
                   />

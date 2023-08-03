@@ -6,13 +6,17 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { TypeService } from '../../assets/service/typeService';
+import { deleteType, getTypes } from "../../assets/service/typeService";
 
 
 export const Type = () => {
   //Get type
-  const typeService = new TypeService();
-  const types = typeService.getTypes();
+  const types = getTypes();
+
+  //Delete Type
+  const handleDeleteType = (typeId: number, typeFile:string) => {
+    deleteType(typeId, typeFile);
+  };
 
   // Control size mobile (768) responsive
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
@@ -74,7 +78,7 @@ export const Type = () => {
           <div className="row justify-content-center bg-light rounded m-5 p-2">
           <div className={`col align-self-center ${isMobile ? "mx-4" : ""}`}>
             <img
-              src={"/src/assets/images/product/type/" + type.file}
+              src={type.file}
               alt={type.name}
               className="img-round"
             />
@@ -90,12 +94,12 @@ export const Type = () => {
           </div>
           <div className="col align-self-center">
             <button className="btn-remove-style">
-              <FontAwesomeIcon icon={faPenToSquare} size="2xl" />
+              <FontAwesomeIcon className="blue-hover" icon={faPenToSquare} size="2xl" />
             </button>
           </div>
           <div className="col align-self-center">
             <button className="btn-remove-style">
-              <FontAwesomeIcon icon={faTrash} size="2xl" />
+              <FontAwesomeIcon className="red-hover" icon={faTrash} size="2xl" onClick={() => handleDeleteType(Number(type.id), type.file)}/>
             </button>
           </div>
         </div>

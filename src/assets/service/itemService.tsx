@@ -1,31 +1,36 @@
-import { Item } from '../entities/item';
-import itemData from '../data/item.json'
-import { TypeService } from './typeService';
+import { Item } from "../entities/item";
+import {
+  addNewItem,
+  deleteItemData,
+  getItemsData,
+} from "../repository/itemRepo";
+import { getTypesData } from "../repository/typeRepo";
 
-//Get type
-const typeService = new TypeService();
-const types = typeService.getTypes();
+export const getItems = () => {
+  const items = getItemsData();
+  return items;
+};
 
-export class ItemService {
-    private items: Item[] = itemData.item.map((itemData) => new Item(
-        itemData.id,
-        itemData.name,
-        itemData.description,
-        itemData.file,
-        itemData.price,
-        itemData.type
-      ));
-    
-      getItems(): Item[] {
-        return this.items;
-      }
+export const addType = (
+  description: string,
+  file: string,
+  id: number,
+  name: string,
+  price: number,
+  type: number
+) => {
+  addNewItem(description, file, id, name, price, type);
+};
 
-      getItemsByType(itemType: number): string {
-        const matchingType = types.find((type) => type.id === itemType);
-        if (matchingType) {
-          return matchingType.name;
-        }
-        return '';
-      }
+export const deleteItem = (itemId: number, itemFile: string) => {
+  deleteItemData(itemId, itemFile);
+};
 
-}
+export const getItemsByType = (itemType: number) => {
+  const types = getTypesData();
+  const matchingType = types.find((type) => type.id === itemType);
+  if (matchingType) {
+    return matchingType.name;
+  }
+  return "";
+};

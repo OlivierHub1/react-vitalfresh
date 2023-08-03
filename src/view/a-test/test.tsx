@@ -31,10 +31,10 @@ import { User } from "../../assets/entities/user";
   );
 };*/
 
-export const Test = () => {
+export const Test: React.FC = () => {
   const [userData, setUserData] = useState(new User);
   useEffect(() => {
-    const startCountRef = ref(db, "user/");
+    const startCountRef = ref(db, "user/0");
     get(startCountRef)
   .then((snapshot) => {
     const data = snapshot.val();
@@ -49,8 +49,15 @@ export const Test = () => {
   return (
     <>
       <div className="mt-5">
-        {userData.email}
+        {JSON.stringify(userData)}
       </div>
     </>
   );
 };
+
+/*export const Test = () => {
+ 
+  return (
+    <div>{JSON.stringify(userData)}</div>
+  )
+}*/

@@ -44,7 +44,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path="shop" element={<Shop />}>
           <Route index element={<ShopAll />} />
-          <Route path=":id" element={<ShopSelect />}/>
+          <Route path=":typeId" element={<ShopSelect />}/>
           <Route path="search/:search" element={<ShopSearch />} />
         </Route>
         <Route path="admin" element={isAdmin ? <Admin /> : <NotFound/>}>

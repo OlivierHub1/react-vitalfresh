@@ -94,161 +94,161 @@
       "id": 0,
       "name": "apple",
       "description": "Good apple",
-      "file": "apple.png",
+      "file": "https://firebasestorage.googleapis.com/v0/b/vitalfresh-53b01.appspot.com/o/product%2Ffruits%2Fapple.png?alt=media&token=f2631f58-a700-420b-9345-be4db95d3cfb",
       "price": 2.5,
-      "type": 1
+      "type": 0
     },
     {
       "id": 1,
       "name": "banana",
       "description": "Tasty banana",
-      "file": "banana.png",
+      "file": "https://firebasestorage.googleapis.com/v0/b/vitalfresh-53b01.appspot.com/o/product%2Ffruits%2Fbanana.png?alt=media&token=e87988fa-4902-4b3f-981b-4443feb3f8d8",
       "price": 1.5,
-      "type": 1
+      "type": 0
     },
     {
       "id": 2,
       "name": "orange",
       "description": "Juicy orange",
-      "file": "orange.png",
+      "file": "https://firebasestorage.googleapis.com/v0/b/vitalfresh-53b01.appspot.com/o/product%2Ffruits%2Forange.png?alt=media&token=be69e806-7463-49a7-a1f9-0feb65a39758",
       "price": 2.0,
-      "type": 1
+      "type": 0
     },
     {
       "id": 3,
       "name": "grapes",
       "description": "Sweet grapes",
-      "file": "grapes.png",
+      "file": "https://firebasestorage.googleapis.com/v0/b/vitalfresh-53b01.appspot.com/o/product%2Ffruits%2Fgrapes.png?alt=media&token=94c6e10a-7617-40b6-89fb-f9286c735c19",
       "price": 3.0,
-      "type": 1
+      "type": 0
     },
     {
       "id": 4,
       "name": "pear",
       "description": "Fresh pear",
-      "file": "pear.png",
+      "file": "https://firebasestorage.googleapis.com/v0/b/vitalfresh-53b01.appspot.com/o/product%2Ffruits%2Fpear.png?alt=media&token=7143b377-b3ad-4d55-82fc-942f94466f7b",
       "price": 1.8,
-      "type": 1
+      "type": 0
     },
     {
       "id": 5,
       "name": "chicken-drumsticks",
       "description": "Delicious chicken drumsticks",
-      "file": "chicken-drumsticks.png",
+      "file": "https://firebasestorage.googleapis.com/v0/b/vitalfresh-53b01.appspot.com/o/product%2Fmeats%2Fchicken-drumsticks.png?alt=media&token=637ee2c9-f94f-4eec-b50d-f7f6c3e86387",
       "price": 5.0,
-      "type": 2
+      "type": 1
     },
     {
       "id": 6,
       "name": "minced-meat",
       "description": "Quality minced meat",
-      "file": "minced-meat.png",
+      "file": "https://firebasestorage.googleapis.com/v0/b/vitalfresh-53b01.appspot.com/o/product%2Fmeats%2Fminced-meat.png?alt=media&token=ab1f84a5-6d54-4fa5-b96f-3774575f5d7e",
       "price": 4.5,
-      "type": 2
+      "type": 1
     },
     {
       "id": 7,
       "name": "pork-chops",
       "description": "Tender pork chops",
-      "file": "pork-chops.png",
+      "file": "https://firebasestorage.googleapis.com/v0/b/vitalfresh-53b01.appspot.com/o/product%2Fmeats%2Fpork-chops.png?alt=media&token=dd5bfb57-c964-46a4-a31f-757dce4f5faa",
       "price": 6.0,
-      "type": 2
+      "type": 1
     },
     {
       "id": 8,
       "name": "steak",
       "description": "Juicy steak",
-      "file": "steak.png",
+      "file": "https://firebasestorage.googleapis.com/v0/b/vitalfresh-53b01.appspot.com/o/product%2Fmeats%2Fsteak.png?alt=media&token=c274f8c9-2dc2-4ba7-939b-a20f87c6dc73",
       "price": 7.5,
-      "type": 2
+      "type": 1
     },
     {
       "id": 9,
       "name": "cheese",
       "description": "Delicious cheese",
-      "file": "cheese.png",
+      "file": "https://firebasestorage.googleapis.com/v0/b/vitalfresh-53b01.appspot.com/o/product%2Fdairy%2Fcheese.png?alt=media&token=353e737d-73a4-4dc3-8334-0c4de049a3b2",
       "price": 3.5,
-      "type": 3
+      "type": 2
     },
     {
       "id": 10,
       "name": "milk",
       "description": "Fresh milk",
-      "file": "milk.png",
+      "file": "https://firebasestorage.googleapis.com/v0/b/vitalfresh-53b01.appspot.com/o/product%2Fdairy%2Fmilk.png?alt=media&token=a17679db-eac2-4e73-b237-b257579f49f7",
       "price": 2.0,
-      "type": 3
+      "type": 2
     },
     {
       "id": 11,
       "name": "cream",
       "description": "Smooth cream",
-      "file": "cream.png",
+      "file": "https://firebasestorage.googleapis.com/v0/b/vitalfresh-53b01.appspot.com/o/product%2Fdairy%2Fcream.png?alt=media&token=8975d095-c934-4c0f-8a68-cf757126579e",
       "price": 4.0,
-      "type": 3
+      "type": 2
     },
     {
       "id": 12,
       "name": "broccoli",
       "description": "Nutritious broccoli",
-      "file": "broccoli.png",
+      "file": "https://firebasestorage.googleapis.com/v0/b/vitalfresh-53b01.appspot.com/o/product%2Fvegetables%2Fbroccoli.png?alt=media&token=27a6420c-27c4-4f48-969b-492dc6322530",
       "price": 1.5,
-      "type": 4
+      "type": 3
     },
     {
       "id": 13,
       "name": "carrot",
       "description": "Fresh carrot",
-      "file": "carrot.png",
+      "file": "https://firebasestorage.googleapis.com/v0/b/vitalfresh-53b01.appspot.com/o/product%2Fvegetables%2Fcarrot.png?alt=media&token=9603b4e3-7a5e-430d-8aa8-884e9fbb7d7b",
       "price": 0.8,
-      "type": 4
+      "type": 3
     },
     {
       "id": 14,
       "name": "eggplant",
       "description": "Versatile eggplant",
-      "file": "eggplant.png",
+      "file": "https://firebasestorage.googleapis.com/v0/b/vitalfresh-53b01.appspot.com/o/product%2Fvegetables%2Feggplant.png?alt=media&token=6770a3c6-3f1b-4da9-b977-4d3c5f8e2fa0",
       "price": 1.2,
-      "type": 4
+      "type": 3
     },
     {
       "id": 15,
       "name": "onion",
       "description": "Flavorful onion",
-      "file": "onion.png",
+      "file": "https://firebasestorage.googleapis.com/v0/b/vitalfresh-53b01.appspot.com/o/product%2Fvegetables%2Fonion.png?alt=media&token=ffad7b1c-6a90-4f41-9d0c-e606b8d5d1de",
       "price": 0.5,
-      "type": 4
+      "type": 3
     },
     {
       "id": 16,
       "name": "tomato",
       "description": "Juicy tomato",
-      "file": "tomato.png",
+      "file": "https://firebasestorage.googleapis.com/v0/b/vitalfresh-53b01.appspot.com/o/product%2Fvegetables%2Ftomato.png?alt=media&token=48196a9d-be62-4abd-9b0f-347484d9d8fb",
       "price": 0.7,
-      "type": 4
+      "type": 3
     },
     {
       "id": 17,
       "name": "bread",
       "description": "Freshly baked bread",
-      "file": "bread.png",
+      "file": "https://firebasestorage.googleapis.com/v0/b/vitalfresh-53b01.appspot.com/o/product%2Fgrain%2Fbread.png?alt=media&token=d80271c6-a918-45db-8320-79bbd17eb20a",
       "price": 2.0,
-      "type": 5
+      "type": 4
     },
     {
       "id": 18,
       "name": "flour",
       "description": "High-quality flour",
-      "file": "flour.png",
+      "file": "https://firebasestorage.googleapis.com/v0/b/vitalfresh-53b01.appspot.com/o/product%2Fgrain%2Fflour.png?alt=media&token=23a85de3-f449-4b36-b6a6-2253de664707",
       "price": 1.5,
-      "type": 5
+      "type": 4
     },
     {
       "id": 19,
       "name": "rice",
       "description": "Premium rice",
-      "file": "rice.png",
+      "file": "https://firebasestorage.googleapis.com/v0/b/vitalfresh-53b01.appspot.com/o/product%2Fgrain%2Frice.png?alt=media&token=1aa1d3ea-95f2-4b49-bc9c-791d65507f42",
       "price": 3.0,
-      "type": 5
+      "type": 4
     }
   ],
   "type": [
@@ -256,31 +256,31 @@
       "id": 0,
       "name": "Fruits",
       "description": "The best fruit",
-      "file": "fruits.png"
+      "file": "https://firebasestorage.googleapis.com/v0/b/vitalfresh-53b01.appspot.com/o/theme%2Ffruits.png?alt=media&token=0f1b98d8-e62b-46e5-bbe3-dda9b35a329a"
     },
     {
       "id": 1,
       "name": "Meats",
       "description": "High-quality meat",
-      "file": "meats.png"
+      "file": "https://firebasestorage.googleapis.com/v0/b/vitalfresh-53b01.appspot.com/o/theme%2Fmeats.png?alt=media&token=2e6c1580-c1fc-41ca-9ea9-88ea78639a6a"
     },
     {
       "id": 2,
       "name": "Dairy",
       "description": "Delicious dairy products",
-      "file": "dairy.png"
+      "file": "https://firebasestorage.googleapis.com/v0/b/vitalfresh-53b01.appspot.com/o/theme%2Fdairy.png?alt=media&token=776195bd-95de-4787-98cf-f22da7e3fe47"
     },
     {
       "id": 3,
       "name": "Vegetables",
       "description": "Fresh and nutritious vegetables",
-      "file": "vegetables.png"
+      "file": "https://firebasestorage.googleapis.com/v0/b/vitalfresh-53b01.appspot.com/o/theme%2Fvegetables.png?alt=media&token=1c8e8cb5-582f-4b59-9288-e9cf9a040d0e"
     },
     {
       "id": 4,
       "name": "Grain",
       "description": "Healthy grain options",
-      "file": "grain.png"
+      "file": "https://firebasestorage.googleapis.com/v0/b/vitalfresh-53b01.appspot.com/o/theme%2Fgrain.png?alt=media&token=058867e7-0bf4-4ef2-88e1-f6f22570cf47"
     }
   ],
   "cart": [

@@ -28,6 +28,14 @@ export const Item = () => {
     };
   }, []);
 
+  //Scrollbar always in top
+  const handleScrollBar = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   return (
     <>
       <section className="container bg-green-shadow rounded mt-5 mb-3 pb-5">
@@ -100,7 +108,7 @@ export const Item = () => {
               isMobile ? "col-12 text-center my-3" : "col"
             }`}
           >
-            <Link to={"/shop/search/" + item.name} className="btn btn-dark">
+            <Link to={"/shop/search/" + item.name} className="btn btn-dark" onClick={handleScrollBar}>
               {item.name}
             </Link>
           </div>

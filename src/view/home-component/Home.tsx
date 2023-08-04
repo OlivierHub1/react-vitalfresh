@@ -17,11 +17,23 @@ export const Home = () => {
     };
 
     window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
   }, []);
+
+  //Scrollbar always in top
+  const handleScrollBar = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
+  if (!types) {
+    return (
+      <div className="d-flex justify-content-center align-items-center vh-100">
+        <div className="spinner-border text-success" role="status"></div>
+      </div>
+    );
+  }
 
   return (
     <>
@@ -56,7 +68,7 @@ export const Home = () => {
         <h1 className="text-center">Our products</h1>
         <div className={isMobile ? "row row-cols-1 g-1" : "row row-cols-3 g-3"}>
           {types.map((type) => (
-            <Link to={"/shop/" + type.id} key={type.id} className="">
+            <Link to={"/shop/" + type.id} key={type.id} className="" onClick={handleScrollBar} >
               <div className="col">
                 <div className="card">
                   <img
@@ -79,15 +91,3 @@ export const Home = () => {
     </>
   );
 };
-
-/*
-// data loader
-export const typesLoader = async () => {
-  const res = await fetch('../../assets/data/type.json')
-
-  if (!res.ok) {
-    throw Error('Could not find the career')
-  }
-
-  return res.json()
-}*/

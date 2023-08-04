@@ -26,6 +26,14 @@ export const ShopSearch = () => {
     };
   }, []);
 
+  if (!items) {
+    return (
+      <div className="d-flex justify-content-center align-items-center vh-100">
+        <div className="spinner-border text-success" role="status"></div>
+      </div>
+    );
+  }
+
   return (
     <>
       <section className="home-products container bg-green-shadow rounded mb-3 pb-5">

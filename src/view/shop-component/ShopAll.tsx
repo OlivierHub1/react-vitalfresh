@@ -43,7 +43,7 @@ export const ShopAll = () => {
                   <h4>
                     <b>{item.name}</b>
                   </h4>
-                  <p>{item.type + " | " + item.price + "$"}</p>
+                  <p>{item.price + "$"}</p>
                   <button className="btn btn-dark w-100">ADD TO CART</button>
                 </div>
               </div>

@@ -26,10 +26,6 @@ export const User = () => {
   //Get user
   const users = getUsers();
 
-  //Set User
-  const [items, setUsers] = useState([]);
-  const [newItemName, setNewUserName] = useState("");
-
   //Delete User
   const handleDeleteUser = (userId: number, userFile:string) => {
     deleteUser(userId, userFile);
@@ -37,7 +33,6 @@ export const User = () => {
 
   //Upload File
   const [imageUpload, setImageUpload] = useState(null);
-  const [imageUrls, setImageUrls] = useState([]);
 
  // const imagesListRef = ref(storage, "user/");
  const handleAddUser = async () => {

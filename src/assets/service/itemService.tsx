@@ -11,7 +11,7 @@ export const getItems = () => {
   return items;
 };
 
-export const addType = (
+export const addItem = (
   description: string,
   file: string,
   id: number,

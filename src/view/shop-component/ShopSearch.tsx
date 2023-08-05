@@ -55,7 +55,7 @@ export const ShopSearch = () => {
                     <img
                       src={item.file}
                       alt={item.name}
-                      className="img-fluid"
+                      className="img-fluid img-shop"
                     />
                     <div className="container justify-content-center">
                       <h4>

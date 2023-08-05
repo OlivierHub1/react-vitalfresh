@@ -2,6 +2,7 @@ import { User } from "../entities/user";
 import {
   addNewUser,
   deleteUserData,
+  editUserData,
   getUserData,
   getUsersData,
 } from "../repository/userRepo";
@@ -30,6 +31,32 @@ export const addUser = (
   addNewUser(
     email,
     file,
+    firstName,
+    id,
+    lastName,
+    money,
+    password,
+    status,
+    username
+  );
+};
+
+export const editUser = (
+  email: string,
+  file: any,
+  oldFile: string,
+  firstName: string,
+  id: Number,
+  lastName: string,
+  money: string,
+  password: string,
+  status: string,
+  username: string
+) => {
+  editUserData(
+    email,
+    file,
+    oldFile,
     firstName,
     id,
     lastName,

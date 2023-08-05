@@ -24,6 +24,8 @@ import { Admin } from "./view/admin-component/Admin";
 import { User } from "./view/admin-component/User";
 import { Type } from "./view/admin-component/Type";
 import { Item } from "./view/admin-component/Item";
+import { UserEdit } from "./view/admin-component/edit/UserEdit";
+import { ItemEdit } from "./view/admin-component/edit/ItemEdit";
 
 //Inclusion
 import { NavBar } from "./view/navbar-component/NavBar";
@@ -44,16 +46,21 @@ function App() {
         <Route index element={<Home />} />
         <Route path="shop" element={<Shop />}>
           <Route index element={<ShopAll />} />
-          <Route path=":typeId" element={<ShopSelect />}/>
+          <Route path=":typeId" element={<ShopSelect />} />
           <Route path="search/:search" element={<ShopSearch />} />
         </Route>
-        <Route path="admin" element={isAdmin ? <Admin /> : <NotFound/>}>
-          <Route path="user" element={<User />} />
+        <Route path="admin" element={isAdmin ? <Admin /> : <NotFound />} errorElement={<NotFound />}>
+          <Route path="user" element={<User />}/>
           <Route path="type" element={<Type />} />
-          <Route path="item" element={<Item />} />
+          <Route path="item" element={<Item />}/>
+          <Route path="user/edit/:userId" element={<UserEdit />} />
+          <Route path="item/edit" element={<ItemEdit />} />
         </Route>
-        <Route path="cart" element={true ? <Cart /> : <NotFound/>} />
-        <Route path="profile" element={isConnected ? <Profile /> : <NotFound/>} />
+        <Route path="cart" element={true ? <Cart /> : <NotFound />} />
+        <Route
+          path="profile"
+          element={isConnected ? <Profile /> : <NotFound />}
+        />
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<Signup />} />
         <Route path="*" element={<NotFound />} />

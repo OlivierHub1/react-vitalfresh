@@ -29,6 +29,11 @@
     height: 300px;
 }
 
+.img-shop {
+    width: 400px;
+    height: 400px;
+}
+
 .green-hover:hover{
     color:green
 }

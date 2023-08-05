@@ -9,7 +9,7 @@ export const getUsersData = () => {
 
   useEffect(() => {
     const usersRef = ref(db, "user/");
-    const unsubscribe = onValue(usersRef, (snapshot) => {
+     onValue(usersRef, (snapshot) => {
       const data = snapshot.val();
       const newPosts = Object.keys(data).map((key) => ({
         id: key,
@@ -18,10 +18,6 @@ export const getUsersData = () => {
       //console.log(newPosts)
       setTodoData(newPosts);
     });
-
-    return () => {
-      unsubscribe();
-    };
   }, []);
   return todoData;
 };
@@ -34,7 +30,7 @@ export const getUserData = (userId) => {
       .then((snapshot) => {
         const data = snapshot.val();
         setUserData(data);
-        console.log(data);
+        //console.log(data);
       })
       .catch((err) => {
         console.error(err);
@@ -48,7 +44,7 @@ export const addNewUser = (
   email: string,
   file: string,
   firstName: string,
-  id: Number, // Pass the id as a parameter
+  id: Number,
   lastName: string,
   money: string,
   password: string,
@@ -57,7 +53,6 @@ export const addNewUser = (
 ) => {
   const usersRef = ref(db, "user/");
 
-  // Manually set the data with the provided id
   const newUser = {
     email: email,
     file: file,
@@ -70,8 +65,44 @@ export const addNewUser = (
     username: username,
   };
 
-  // Set the user data with the provided id as the key
   set(child(usersRef, String(id)), newUser);
+};
+
+export const editUserData = (
+  email: string,
+  file: string,
+  oldFile: string,
+  firstName: string,
+  id: Number,
+  lastName: string,
+  money: string,
+  password: string,
+  status: string,
+  username: string
+) => {
+  const usersRef = ref(db, "user/" + id);
+
+  set(usersRef, {
+    email: email,
+    file: file,
+    firstName: firstName,
+    lastName: lastName,
+    money: money,
+    password: password,
+    status: status,
+    username: username,
+  });
+  
+  //Delete file
+  const startIndex = oldFile.lastIndexOf("%2F") + 3;
+  const endIndex = oldFile.indexOf("?");
+  const userRefStorage = storageRef(
+    storage,
+    "user/" + oldFile.substring(startIndex, endIndex)
+  );
+  deleteObject(userRefStorage).then(() => {
+    console.log("User ancient image remove");
+  });
 };
 
 export const deleteUserData = (userId: number, userFile: string) => {

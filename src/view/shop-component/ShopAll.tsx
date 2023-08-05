@@ -38,7 +38,7 @@ export const ShopAll = () => {
           {items.map((item) => (
             <div className="col mb-2" key={item.id}>
               <div className="card p-2">
-                <img src={item.file} alt={item.name} className="img-fluid" />
+                <img src={item.file} alt={item.name} className="img-fluid img-shop" />
                 <div className="container justify-content-center">
                   <h4>
                     <b>{item.name}</b>

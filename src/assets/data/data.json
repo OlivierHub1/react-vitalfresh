@@ -286,8 +286,9 @@
   "cart": [
     {
       "id": 1,
-      "idUser": 1,
-      "idItem": 1
+      "quantity": 1,
+      "price": 1,
+      "file": ""
     }
   ]
 }

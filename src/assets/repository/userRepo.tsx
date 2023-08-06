@@ -105,6 +105,31 @@ export const editUserData = (
   });
 };
 
+export const editMoneyData = (
+  email: string,
+  file: string,
+  firstName: string,
+  id: Number,
+  lastName: string,
+  money: string,
+  password: string,
+  status: string,
+  username: string
+) => {
+  const usersRef = ref(db, "user/" + id);
+
+  set(usersRef, {
+    email: email,
+    file: file,
+    firstName: firstName,
+    lastName: lastName,
+    money: money,
+    password: password,
+    status: status,
+    username: username,
+  });
+};
+
 export const deleteUserData = (userId: number, userFile: string) => {
   //Delete user
   const usersRef = ref(db, "user/" + userId);

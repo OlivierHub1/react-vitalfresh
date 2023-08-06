@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import data from "../../assets/data/item.json";
 import { useParams } from "react-router-dom";
 import { getItems } from "../../assets/service/itemService";
+import { getCart, addItemInCart } from "../../assets/service/cartService";
+import { MessageConnection } from "../alert-component/Alert";
 
 export const ShopSelect = () => {
   //Get item
@@ -9,6 +11,38 @@ export const ShopSelect = () => {
 
   //Get item by type with type name
   const { typeId } = useParams();
+
+  //Get Cart
+  const cart = getCart(localStorage.getItem("userName"));
+
+  //Verify connection
+  const isConnected = localStorage.getItem("userName") != null;
+
+  //Set message
+  const [message, setMessage] = useState(null);
+
+  //Add item into cart
+  const handleAddItem = (
+    id: number,
+    price: number,
+    file: string,
+    name: string
+  ) => {
+    const username = localStorage.getItem("userName");
+    if (!isConnected) {
+      setMessage({
+        result: "Bad",
+        message: "You are not connected",
+        color: "danger",
+      });
+    }
+
+    if (cart.find((item) => item.name === name)) {
+      return null;
+    } else {
+      addItemInCart(id, 1, name, price, file, username);
+    }
+  };
 
   // Control size mobile (768) responsive
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
@@ -54,7 +88,17 @@ export const ShopSelect = () => {
                         <b>{item.name}</b>
                       </h4>
                       <p>{item.price + "$"}</p>
-                      <button className="btn btn-dark w-100">
+                      <button
+                        className="btn btn-dark w-100"
+                        onClick={() =>
+                          handleAddItem(
+                            cart.length,
+                            item.price,
+                            item.file,
+                            item.name
+                          )
+                        }
+                      >
                         ADD TO CART
                       </button>
                     </div>
@@ -65,6 +109,13 @@ export const ShopSelect = () => {
             return null;
           })}
         </div>
+        {message && (
+          <MessageConnection
+            result={message.result}
+            message={message.message}
+            color={message.color}
+          />
+        )}
       </section>
     </>
   );

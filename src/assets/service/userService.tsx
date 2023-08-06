@@ -2,6 +2,7 @@ import { User } from "../entities/user";
 import {
   addNewUser,
   deleteUserData,
+  editMoneyData,
   editUserData,
   getUserData,
   getUsersData,
@@ -57,6 +58,30 @@ export const editUser = (
     email,
     file,
     oldFile,
+    firstName,
+    id,
+    lastName,
+    money,
+    password,
+    status,
+    username
+  );
+};
+
+export const editMoney = (
+  email: string,
+  file: any,
+  firstName: string,
+  id: Number,
+  lastName: string,
+  money: string,
+  password: string,
+  status: string,
+  username: string
+) => {
+  editMoneyData(
+    email,
+    file,
     firstName,
     id,
     lastName,

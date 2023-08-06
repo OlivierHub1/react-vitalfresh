@@ -5,6 +5,7 @@ import { faBars, faShoppingCart, faUser } from "@fortawesome/free-solid-svg-icon
 import "/src/assets/mystyle.css";
 import "./Navbar.css";
 import { User } from "../../assets/entities/user";
+import { getCart } from "../../assets/service/cartService";
 
 //Handle logout
 const handleLogut = () => {
@@ -125,13 +126,14 @@ function renderConnectionLink(
 }
 
 function renderUserOption(condition: boolean) {
+  const cart = getCart(localStorage.getItem("userName"))
   if (condition) {
     return (
       <div className="d-flex flex-row">
         <Link className="text-reset me-3" to="/cart">
         <FontAwesomeIcon icon={faShoppingCart} />
         <span className="badge rounded-pill badge-notification bg-danger">
-          1
+          {cart.length}
         </span>
         
       </Link>

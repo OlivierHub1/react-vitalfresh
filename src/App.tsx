@@ -22,7 +22,6 @@ import { ShopSearch } from "./view/shop-component/ShopSearch";
 //Page Admin
 import { Admin } from "./view/admin-component/Admin";
 import { User } from "./view/admin-component/User";
-import { Type } from "./view/admin-component/Type";
 import { Item } from "./view/admin-component/Item";
 import { UserEdit } from "./view/admin-component/edit/UserEdit";
 import { ItemEdit } from "./view/admin-component/edit/ItemEdit";
@@ -51,9 +50,8 @@ function App() {
         </Route>
         <Route path="admin" element={isAdmin ? <Admin /> : <NotFound />} errorElement={<NotFound />}>
           <Route path="user" element={<User />}/>
-          <Route path="type" element={<Type />} />
           <Route path="item" element={<Item />}/>
-          <Route path="user/edit/:userId" element={<UserEdit />} />
+          <Route path="user/edit" element={<UserEdit />} />
           <Route path="item/edit" element={<ItemEdit />} />
         </Route>
         <Route path="cart" element={true ? <Cart /> : <NotFound />} />

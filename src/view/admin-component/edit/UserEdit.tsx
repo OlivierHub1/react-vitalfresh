@@ -3,30 +3,28 @@ import { uploadBytes, getDownloadURL } from "@firebase/storage";
 import { ref } from "firebase/storage";
 import { storage } from "../../../firebase";
 import { v4 } from "uuid";
-import { editUser, getUser } from "../../../assets/service/userService";
-import { useNavigate, useParams } from "react-router-dom";
+import { editUser } from "../../../assets/service/userService";
+import { useNavigate } from "react-router-dom";
 
 export const UserEdit = () => {
   //Navigation
   const navigate = useNavigate();
   //Get user
-  const { userId } = useParams();
-  const user = getUser(Number(userId));
+  const user = JSON.parse(localStorage.getItem("userDataEdit"))
 
   //User states
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [money, setMoney] = useState("");
-  const [password, setPassword] = useState("");
-  const [status, setStatus] = useState("");
+  const [firstName, setFirstName] = useState(user.firstName);
+  const [lastName, setLastName] = useState(user.lastName);
+  const [username, setUsername] = useState(user.username);
+  const [email, setEmail] = useState(user.email);
+  const [money, setMoney] = useState(user.money);
+  const [password, setPassword] = useState(user.password);
+  const [status, setStatus] = useState(user.status);
 
   //Hidden data
-  const id = userId;
+  const id = 8;
   const oldFile = user.file;
 
-  //console.log(id)
   //Upload File
   const [imageUpload, setImageUpload] = useState(null);
 
@@ -55,14 +53,6 @@ export const UserEdit = () => {
       console.error("Error uploading image:", error);
     }
   };
-
-  /*if (!user) {
-    return (
-      <div className="d-flex justify-content-center align-items-center vh-100">
-        <div className="spinner-border text-success" role="status"></div>
-      </div>
-    );
-  }*/
 
   return (
     <section className="container bg-green-shadow rounded mt-5 mb-3 pb-5">

@@ -7,7 +7,7 @@ import {
   deleteItem,
   getItems,
 } from "../../assets/service/itemService";
-import { addType, getTypes } from "../../assets/service/typeService";
+import { getTypes } from "../../assets/service/typeService";
 import { uploadBytes, getDownloadURL } from "@firebase/storage";
 import { ref } from "firebase/storage";
 import { storage } from "../../firebase";

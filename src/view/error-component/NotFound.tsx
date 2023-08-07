@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 
 export const NotFound = () => {
   return (
-    <div>NotFound <Link to={'/'}>Return home?</Link></div>
+    <div className="d-flex justify-content-center align-items-center vh-100">
+      <div>{"Page not found :( - "} <Link to={'/'}>Return home?</Link></div>
+      </div>
   )
 }

@@ -10,7 +10,7 @@ import { uploadBytes, getDownloadURL } from "@firebase/storage";
 import { ref } from "firebase/storage";
 import { storage } from "../../firebase";
 import { v4 } from "uuid";
-import { Link } from "react-router-dom";
+import { User as userObj } from "../../assets/entities/user";
 
 export const User = () => {
   //User states
@@ -31,6 +31,21 @@ export const User = () => {
   //Delete User
   const handleDeleteUser = (userId: number, userFile: string) => {
     deleteUser(userId, userFile);
+  };
+
+  //Edit user
+  const handleEditUser = (id: number,
+    firstName: string,
+    lastName: string,
+    username: string,
+    email: string,
+    password: string,
+    file: string,
+    money: string,
+    status: string) => {
+    const user = new userObj(id, firstName, lastName, username, email, password, file, money, status);
+    localStorage.setItem("userDataEdit", JSON.stringify(user))
+    window.location.assign("/admin/user/edit")
   };
 
   //Upload File
@@ -202,13 +217,16 @@ export const User = () => {
                 <span className="btn btn-dark">{user.username}</span>
               </div>
               <div className="col align-self-center">
-                <Link to={"/admin/user/edit/" + user.id} style={{ color: "inherit" }}>
+              <button
+                  className="btn-remove-style"
+                  onClick={() => handleEditUser(user.id, user.firstName, user.lastName, user.username, user.email, user.password, user.file, user.money, user.status)}
+                >
                   <FontAwesomeIcon
                     className="blue-hover"
                     icon={faPenToSquare}
                     size="2xl"
                   />
-                </Link>
+                </button>
               </div>
               <div className="col align-self-center">
                 <button

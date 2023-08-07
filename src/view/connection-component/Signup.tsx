@@ -6,6 +6,8 @@ import { uploadBytes, getDownloadURL } from "@firebase/storage";
 import { ref } from "firebase/storage";
 import { storage } from "../../firebase";
 import { v4 } from "uuid";
+import { User } from "../../assets/entities/user";
+import { Message } from "../alert-component/Alert";
 
 
 export const Signup = () => {
@@ -15,18 +17,31 @@ export const Signup = () => {
   //Navigation
   const navigate = useNavigate();
 
+  //Message
+  const [message, setMessage] = useState(null);
+
   //SignUp statement
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [password2, setPassword2] = useState("");
   const [imageUpload, setImageUpload] = useState(null);
 
   const handleSignup = async () => {
     if (imageUpload == null) return;
+
+    if (password !== password2) {
+      setMessage({
+        result: "Alert",
+        message: `The two password that you provided are not the same`,
+        color: "danger",
+      });
+    }
   
-    try {
+    else if (!verifyUserExist(username, email, users)) {
+      try {
       const imageRef = ref(storage, `user/${imageUpload.name + v4()}`);
       const snapshot = await uploadBytes(imageRef, imageUpload);
       const url = await getDownloadURL(snapshot.ref);
@@ -36,6 +51,16 @@ export const Signup = () => {
     } catch (error) {
       console.error("Error uploading image:", error);
     }
+    }
+
+    else{
+      setMessage({
+        result: "Alert",
+        message: `The username or email already exist`,
+        color: "danger",
+      });
+    }
+    
   }
 
   return (
@@ -81,6 +106,8 @@ export const Signup = () => {
             className="rounded"
             type="password"
             placeholder="Confirm Password"
+            value={password2}
+            onChange={(e) => setPassword2(e.target.value)}
           />
           <input
             className="form-control form-control-lg"
@@ -98,6 +125,20 @@ export const Signup = () => {
           </p>
         </div>
       </div>
+      {message && (
+        <Message
+          result={message.result}
+          message={message.message}
+          color={message.color}
+        />
+      )}
     </div>
   );
 };
+
+function verifyUserExist(username, email, usersData:User[]){
+  const user = usersData.find(
+    (user) => user.username === username || user.email === email
+  );
+  return user !== undefined;
+}

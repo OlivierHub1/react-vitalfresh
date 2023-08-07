@@ -10,6 +10,32 @@ interface Props {
   color: string;
 }
 
+export const Message: React.FC<Props> = ({
+  result,
+  message,
+  color,
+}) => {
+  //Show Alert
+  const [show] = useState(true);
+  const handleClose = () => window.location.reload();
+  return (
+    <Modal show={show}>
+      <Modal.Header>
+        <Modal.Title>{result}</Modal.Title>
+        <Button variant="dark" onClick={handleClose}>
+        <FontAwesomeIcon icon={faX} />
+        </Button>
+      </Modal.Header>
+      <Modal.Body>{message}</Modal.Body>
+      <Modal.Footer>
+        <Button variant={color} onClick={handleClose}>
+          Ok
+        </Button>
+      </Modal.Footer>
+    </Modal>
+  );
+};
+
 export const MessageCart: React.FC<Props> = ({
   result,
   message,

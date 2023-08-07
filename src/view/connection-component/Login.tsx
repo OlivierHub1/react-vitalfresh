@@ -8,7 +8,6 @@ export const Login = () => {
   //Get user
   const usersData = getUsers();
   console.log(usersData)
-  //const userService = new UserService();
 
   //Login State
   const [username, setUsername] = useState("");

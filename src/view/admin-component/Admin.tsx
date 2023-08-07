@@ -1,8 +1,5 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
-import { Footnote } from "../footnote-component/Footnote";
-import axios from "axios";
-
 export const Admin = () => {
   return (
     <>
@@ -12,11 +9,6 @@ export const Admin = () => {
           <div className="col d-flex justify-content-center">
             <Link to={"user"}>
               <button className="btn btn-dark">User</button>
-            </Link>
-          </div>
-          <div className="col d-flex justify-content-center">
-            <Link to={"type"}>
-              <button className="btn btn-dark">Type</button>
             </Link>
           </div>
           <div className="col d-flex justify-content-center">

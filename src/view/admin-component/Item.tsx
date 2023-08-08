@@ -12,6 +12,8 @@ import { uploadBytes, getDownloadURL } from "@firebase/storage";
 import { ref } from "firebase/storage";
 import { storage } from "../../firebase";
 import { v4 } from "uuid";
+import { Item as itemObj } from "../../assets/entities/item";
+import { Message } from "../alert-component/Alert";
 
 export const Item = () => {
   //Item states
@@ -20,8 +22,14 @@ export const Item = () => {
   const [price, setPrice] = useState("");
   const [typeId, setTypeId] = useState("");
 
+  //Select item
+  const [selectItem, setSelectItem] = useState(0);
+
   //Upload File
   const [imageUpload, setImageUpload] = useState(null);
+
+  //Message
+  const [message, setMessage] = useState(null);
 
   //Get type
   const types = getTypes();
@@ -29,31 +37,73 @@ export const Item = () => {
   //Get item
   const items = getItems();
 
-  //Add type
+  //Add Item
   const handleAddItem = async () => {
-    if (imageUpload == null) return;
+    if (imageUpload == null) {
+      setMessage({
+        result: "Alert",
+        message: `Please chose an image`,
+        color: "danger",
+      });
+    } else if (verifyNameProduct(name, items)) {
+      setMessage({
+        result: "Alert",
+        message: `Item name "${name}" already taken`,
+        color: "danger",
+      });
+    } else {
+      try {
+        const imageRef = ref(
+          storage,
+          `product/${convertTypeId(Number(typeId))}/${imageUpload.name + v4()}`
+        );
+        const snapshot = await uploadBytes(imageRef, imageUpload);
+        const url = await getDownloadURL(snapshot.ref);
 
-    try {
-      const imageRef = ref(storage, `theme/${imageUpload.name + v4()}`);
-      const snapshot = await uploadBytes(imageRef, imageUpload);
-      const url = await getDownloadURL(snapshot.ref);
+        addItem(
+          description,
+          url,
+          items.length,
+          name,
+          Number(price),
+          Number(typeId)
+        );
 
-      addItem(
-        description,
-        url,
-        items.length,
-        name,
-        Number(price),
-        Number(typeId)
-      );
-    } catch (error) {
-      console.error("Error uploading image:", error);
+        setMessage({
+          result: "Alert",
+          message: `Your new item "${name}" has been had`,
+          color: "success",
+        });
+      } catch (error) {
+        console.error("Error uploading image:", error);
+      }
     }
   };
 
+  //Edit item
+  const handleEditItem = (
+    id: number,
+    name: string,
+    description: string,
+    file: string,
+    price: number,
+    type: number
+  ) => {
+    const item = new itemObj(
+      id,
+      name,
+      description,
+      file,
+      Number(price),
+      Number(type)
+    );
+    localStorage.setItem("itemDataEdit", JSON.stringify(item));
+    window.location.assign("/admin/item/edit");
+  };
+
   //Delete Item
-  const handleDeleteItem = (itemId: number, itemFile: string) => {
-    deleteItem(itemId, itemFile);
+  const handleDeleteItem = (itemId: number, itemFile: string, type: number) => {
+    deleteItem(itemId, itemFile, type);
   };
 
   // Control size mobile (768) responsive
@@ -150,47 +200,112 @@ export const Item = () => {
 
       <section className="container bg-green-shadow rounded mt-5 mb-3 pb-5">
         <h1 className="text-center text-white">Item List</h1>
-
-        {items.map((item) => (
-          <div className="row justify-content-center bg-light rounded m-5 p-2">
-            <div className={`col align-self-center ${isMobile ? "mx-4" : ""}`}>
-              <img src={item.file} alt={item.name} className="img-round" />
-            </div>
+        <select
+          className="form-select"
+          aria-label="Default select example"
+          value={selectItem}
+          onChange={(e) => setSelectItem(Number(e.target.value))}
+        >
+          {types.map((type) => (
+            <option key={type.id} value={type.id}>
+              {type.name}
+            </option>
+          ))}
+        </select>
+        {items
+          .filter((item) => item.type == selectItem)
+          .map((item) => (
             <div
-              className={`align-self-center ${
-                isMobile ? "col-12 text-center my-3" : "col"
-              }`}
+              className="row justify-content-center bg-light rounded m-5 p-2"
+              key={item.id}
             >
-              <Link
-                to={"/shop/search/" + item.name}
-                className="btn btn-dark"
-                onClick={handleScrollBar}
+              <div
+                className={`col align-self-center ${isMobile ? "mx-4" : ""}`}
               >
-                {item.name}
-              </Link>
+                <img src={item.file} alt={item.name} className="img-round" />
+              </div>
+              <div
+                className={`align-self-center ${
+                  isMobile ? "col-12 text-center my-3" : "col"
+                }`}
+              >
+                <Link
+                  to={"/shop/search/" + item.name}
+                  className="btn btn-dark"
+                  onClick={handleScrollBar}
+                >
+                  {item.name}
+                </Link>
+              </div>
+              <div className="col align-self-center">
+                <button
+                  className="btn-remove-style"
+                  onClick={() =>
+                    handleEditItem(
+                      item.id,
+                      item.name,
+                      item.description,
+                      item.file,
+                      item.price,
+                      item.type
+                    )
+                  }
+                >
+                  <FontAwesomeIcon
+                    className="blue-hover"
+                    icon={faPenToSquare}
+                    size="2xl"
+                  />
+                </button>
+              </div>
+              <div className="col align-self-center">
+                <button
+                  className="btn-remove-style"
+                  onClick={() =>
+                    handleDeleteItem(Number(item.id), item.file, item.type)
+                  }
+                >
+                  <FontAwesomeIcon
+                    className="red-hover"
+                    icon={faTrash}
+                    size="2xl"
+                  />
+                </button>
+              </div>
             </div>
-            <div className="col align-self-center">
-              <Link to={"/admin/item/edit"} style={{ color: "inherit" }}>
-                <FontAwesomeIcon
-                  className="blue-hover"
-                  icon={faPenToSquare}
-                  size="2xl"
-                />
-              </Link>
-            </div>
-            <div className="col align-self-center">
-              <button className="btn-remove-style">
-                <FontAwesomeIcon
-                  className="red-hover"
-                  icon={faTrash}
-                  size="2xl"
-                  onClick={() => handleDeleteItem(Number(item.id), item.file)}
-                />
-              </button>
-            </div>
-          </div>
-        ))}
+          ))}
       </section>
+      {message && (
+        <Message
+          result={message.result}
+          message={message.message}
+          color={message.color}
+        />
+      )}
     </>
   );
 };
+
+function verifyNameProduct(name: string, items: itemObj[]) {
+  const item = items.find(
+    (item) => item.name === name
+  );
+  return item !== undefined;
+}
+
+function convertTypeId(typeId: number) {
+  let typeName = "";
+
+  switch (Number(typeId)) {
+    case 0:
+      return (typeName = "fruits");
+    case 1:
+      return (typeName = "meats");
+    case 2:
+      return (typeName = "dairy");
+    case 3:
+      return (typeName = "vegetables");
+    case 4:
+      return (typeName = "grain");
+  }
+}

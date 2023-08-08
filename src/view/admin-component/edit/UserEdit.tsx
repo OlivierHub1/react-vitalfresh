@@ -9,8 +9,9 @@ import { useNavigate } from "react-router-dom";
 export const UserEdit = () => {
   //Navigation
   const navigate = useNavigate();
+
   //Get user
-  const user = JSON.parse(localStorage.getItem("userDataEdit"))
+  const user = JSON.parse(localStorage.getItem("userDataEdit"));
 
   //User states
   const [firstName, setFirstName] = useState(user.firstName);
@@ -22,19 +23,21 @@ export const UserEdit = () => {
   const [status, setStatus] = useState(user.status);
 
   //Hidden data
-  const id = 8;
+  const id = user.id;
   const oldFile = user.file;
 
   //Upload File
   const [imageUpload, setImageUpload] = useState(null);
 
   const handleEditUser = async () => {
-    if (imageUpload == null) return;
-
     try {
-      const imageRef = ref(storage, `user/${imageUpload.name + v4()}`);
-      const snapshot = await uploadBytes(imageRef, imageUpload);
-      const url = await getDownloadURL(snapshot.ref);
+      let url = oldFile;
+
+      if (imageUpload != null) {
+        const imageRef = ref(storage, `user/${imageUpload.name + v4()}`);
+        const snapshot = await uploadBytes(imageRef, imageUpload);
+        url = await getDownloadURL(snapshot.ref);
+      }
 
       editUser(
         email,
@@ -48,6 +51,7 @@ export const UserEdit = () => {
         status,
         username
       );
+      localStorage.setItem("userDataEdit", "");
       navigate("/admin");
     } catch (error) {
       console.error("Error uploading image:", error);
@@ -143,6 +147,7 @@ export const UserEdit = () => {
             className="form-control form-control-lg"
             id="formFileLg"
             type="file"
+            accept="image/*"
             onChange={(e) => {
               setImageUpload(e.target.files[0]);
             }}

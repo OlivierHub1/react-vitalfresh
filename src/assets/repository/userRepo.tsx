@@ -9,7 +9,7 @@ export const getUsersData = () => {
 
   useEffect(() => {
     const usersRef = ref(db, "user/");
-     onValue(usersRef, (snapshot) => {
+    onValue(usersRef, (snapshot) => {
       const data = snapshot.val();
       const newPosts = Object.keys(data).map((key) => ({
         id: key,
@@ -92,17 +92,19 @@ export const editUserData = (
     status: status,
     username: username,
   });
-  
+
   //Delete file
-  const startIndex = oldFile.lastIndexOf("%2F") + 3;
-  const endIndex = oldFile.indexOf("?");
-  const userRefStorage = storageRef(
-    storage,
-    "user/" + oldFile.substring(startIndex, endIndex)
-  );
-  deleteObject(userRefStorage).then(() => {
-    console.log("User ancient image remove");
-  });
+  if (file != oldFile) {
+    const startIndex = oldFile.lastIndexOf("%2F") + 3;
+    const endIndex = oldFile.indexOf("?");
+    const userRefStorage = storageRef(
+      storage,
+      "user/" + oldFile.substring(startIndex, endIndex)
+    );
+    deleteObject(userRefStorage).then(() => {
+      console.log("User ancient image remove");
+    });
+  }
 };
 
 export const editMoneyData = (

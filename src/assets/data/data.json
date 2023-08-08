@@ -282,13 +282,5 @@
       "description": "Healthy grain options",
       "file": "https://firebasestorage.googleapis.com/v0/b/vitalfresh-53b01.appspot.com/o/theme%2Fgrain.png?alt=media&token=058867e7-0bf4-4ef2-88e1-f6f22570cf47"
     }
-  ],
-  "cart": [
-    {
-      "id": 1,
-      "quantity": 1,
-      "price": 1,
-      "file": ""
-    }
   ]
 }

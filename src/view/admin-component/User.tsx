@@ -11,6 +11,7 @@ import { ref } from "firebase/storage";
 import { storage } from "../../firebase";
 import { v4 } from "uuid";
 import { User as userObj } from "../../assets/entities/user";
+import { Message } from "../alert-component/Alert";
 
 export const User = () => {
   //User states
@@ -20,6 +21,7 @@ export const User = () => {
   const [email, setEmail] = useState("");
   const [money, setMoney] = useState("");
   const [password, setPassword] = useState("");
+  const [password2, setPassword2] = useState("");
   const [status, setStatus] = useState("");
 
   // Control size mobile (768) responsive
@@ -28,13 +30,17 @@ export const User = () => {
   //Get user
   const users = getUsers();
 
+  //Message
+  const [message, setMessage] = useState(null);
+
   //Delete User
   const handleDeleteUser = (userId: number, userFile: string) => {
     deleteUser(userId, userFile);
   };
 
   //Edit user
-  const handleEditUser = (id: number,
+  const handleEditUser = (
+    id: number,
     firstName: string,
     lastName: string,
     username: string,
@@ -42,10 +48,21 @@ export const User = () => {
     password: string,
     file: string,
     money: string,
-    status: string) => {
-    const user = new userObj(id, firstName, lastName, username, email, password, file, money, status);
-    localStorage.setItem("userDataEdit", JSON.stringify(user))
-    window.location.assign("/admin/user/edit")
+    status: string
+  ) => {
+    const user = new userObj(
+      id,
+      firstName,
+      lastName,
+      username,
+      email,
+      password,
+      file,
+      money,
+      status
+    );
+    localStorage.setItem("userDataEdit", JSON.stringify(user));
+    window.location.assign("/admin/user/edit");
   };
 
   //Upload File
@@ -53,9 +70,30 @@ export const User = () => {
 
   // const imagesListRef = ref(storage, "user/");
   const handleAddUser = async () => {
-    if (imageUpload == null) return;
+    if (imageUpload == null) {
+      setMessage({
+        result: "Alert",
+        message: `Please chose an image`,
+        color: "danger",
+      });
+    }
 
-    try {
+    if (password !== password2) {
+      setMessage({
+        result: "Alert",
+        message: `The two password that you provided are not the same`,
+        color: "danger",
+      });
+    } else if (verifyUserExist(username, email, users)) {
+      setMessage({
+        result: "Alert",
+        message: `The username or email already exist`,
+        color: "danger",
+      });
+    }
+
+    else{
+      try {
       const imageRef = ref(storage, `user/${imageUpload.name + v4()}`);
       const snapshot = await uploadBytes(imageRef, imageUpload);
       const url = await getDownloadURL(snapshot.ref);
@@ -74,6 +112,9 @@ export const User = () => {
     } catch (error) {
       console.error("Error uploading image:", error);
     }
+    }
+
+    
   };
 
   //UseEffect
@@ -156,6 +197,16 @@ export const User = () => {
             />
           </div>
           <div className="form-group my-2">
+            <label htmlFor="exampleInputPassword">Password</label>
+            <input
+              type="password"
+              className="form-control"
+              placeholder="Enter password"
+              value={password2}
+              onChange={(e) => setPassword2(e.target.value)}
+            />
+          </div>
+          <div className="form-group my-2">
             <label htmlFor="exampleSelectStatus">Choose type</label>
             <select
               className="form-select"
@@ -196,7 +247,7 @@ export const User = () => {
         <h1 className="text-center">User List</h1>
 
         {users
-          .filter((user) => user.status == "user") // Filter out the user with id 0
+        .filter(user => user.username != localStorage.getItem("userName"))
           .map((user) => (
             <div
               className="row justify-content-center bg-light rounded m-5 p-2"
@@ -217,9 +268,21 @@ export const User = () => {
                 <span className="btn btn-dark">{user.username}</span>
               </div>
               <div className="col align-self-center">
-              <button
+                <button
                   className="btn-remove-style"
-                  onClick={() => handleEditUser(user.id, user.firstName, user.lastName, user.username, user.email, user.password, user.file, user.money, user.status)}
+                  onClick={() =>
+                    handleEditUser(
+                      user.id,
+                      user.firstName,
+                      user.lastName,
+                      user.username,
+                      user.email,
+                      user.password,
+                      user.file,
+                      user.money,
+                      user.status
+                    )
+                  }
                 >
                   <FontAwesomeIcon
                     className="blue-hover"
@@ -243,6 +306,20 @@ export const User = () => {
             </div>
           ))}
       </section>
+      {message && (
+        <Message
+          result={message.result}
+          message={message.message}
+          color={message.color}
+        />
+      )}
     </>
   );
 };
+
+function verifyUserExist(username, email, usersData: userObj[]) {
+  const user = usersData.find(
+    (user) => user.username === username || user.email === email
+  );
+  return user !== undefined;
+}

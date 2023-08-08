@@ -9,7 +9,6 @@ import { v4 } from "uuid";
 import { User } from "../../assets/entities/user";
 import { Message } from "../alert-component/Alert";
 
-
 export const Signup = () => {
   //Get user
   const users = getUsers();
@@ -30,7 +29,13 @@ export const Signup = () => {
   const [imageUpload, setImageUpload] = useState(null);
 
   const handleSignup = async () => {
-    if (imageUpload == null) return;
+    if (imageUpload == null) {
+      setMessage({
+        result: "Alert",
+        message: `Please chose an image`,
+        color: "danger",
+      });
+    }
 
     if (password !== password2) {
       setMessage({
@@ -38,30 +43,35 @@ export const Signup = () => {
         message: `The two password that you provided are not the same`,
         color: "danger",
       });
-    }
-  
-    else if (!verifyUserExist(username, email, users)) {
-      try {
-      const imageRef = ref(storage, `user/${imageUpload.name + v4()}`);
-      const snapshot = await uploadBytes(imageRef, imageUpload);
-      const url = await getDownloadURL(snapshot.ref);
-  
-      addUser(email, url, firstName, users.length, lastName, "500", password, "user", username);
-      navigate("/login")
-    } catch (error) {
-      console.error("Error uploading image:", error);
-    }
-    }
-
-    else{
+    } else if (verifyUserExist(username, email, users)) {
       setMessage({
         result: "Alert",
         message: `The username or email already exist`,
         color: "danger",
       });
+    } else {
+      try {
+        const imageRef = ref(storage, `user/${imageUpload.name + v4()}`);
+        const snapshot = await uploadBytes(imageRef, imageUpload);
+        const url = await getDownloadURL(snapshot.ref);
+
+        addUser(
+          email,
+          url,
+          firstName,
+          users.length,
+          lastName,
+          "500",
+          password,
+          "user",
+          username
+        );
+        navigate("/login");
+      } catch (error) {
+        console.error("Error uploading image:", error);
+      }
     }
-    
-  }
+  };
 
   return (
     <div className="login-page">
@@ -136,7 +146,7 @@ export const Signup = () => {
   );
 };
 
-function verifyUserExist(username, email, usersData:User[]){
+function verifyUserExist(username, email, usersData: User[]) {
   const user = usersData.find(
     (user) => user.username === username || user.email === email
   );

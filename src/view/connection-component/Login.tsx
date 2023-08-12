@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Login.css";
-import { User } from "../../assets/entities/user";
-import { getUsers } from "../../assets/service/userService";
+import { User } from "../../entities/user";
+import { getUsers } from "../../service/userService";
 
 export const Login = () => {
   //Get user

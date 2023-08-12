@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Footnote } from "../footnote-component/Footnote";
 import "./Home.css";
-import { getTypes } from "../../assets/service/typeService";
+import { getTypes } from "../../service/typeService";
 import { Link } from "react-router-dom";
 
 export const Home = () => {

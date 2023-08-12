@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { getItems } from "../../assets/service/itemService";
+import { getItems } from "../../service/itemService";
 import { MessageConnection } from "../alert-component/Alert";
-import { Cart } from "../../assets/entities/cart";
+import { Cart } from "../../entities/cart";
 import {
   addItemInCart,
   editQuantity,
   getCart,
-} from "../../assets/service/cartService";
+} from "../../service/cartService";
 
 export const ShopAll = () => {
   //Get item

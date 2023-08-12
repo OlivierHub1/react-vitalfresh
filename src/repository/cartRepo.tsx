@@ -1,6 +1,6 @@
 import { ref, onValue, set, child, remove } from "firebase/database";
 import React, { useEffect, useState } from "react";
-import { db } from "../../firebase";
+import { db } from "../firebase";
 import { Cart } from "../entities/cart";
 
 export const getCartData = (username: string) => {

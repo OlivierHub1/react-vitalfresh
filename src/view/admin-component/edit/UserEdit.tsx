@@ -3,7 +3,7 @@ import { uploadBytes, getDownloadURL } from "@firebase/storage";
 import { ref } from "firebase/storage";
 import { storage } from "../../../firebase";
 import { v4 } from "uuid";
-import { editUser } from "../../../assets/service/userService";
+import { editUser } from "../../../service/userService";
 import { useNavigate } from "react-router-dom";
 
 export const UserEdit = () => {

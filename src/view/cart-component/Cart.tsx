@@ -13,12 +13,12 @@ import {
   deleteItemInCart,
   editQuantity,
   getCart,
-} from "../../assets/service/cartService";
+} from "../../service/cartService";
 import { useNavigate } from "react-router-dom";
-import { Cart as CartEnt } from "../../assets/entities/cart";
-import { User } from "../../assets/entities/user";
-import { editMoney, getUsers } from "../../assets/service/userService";
-import { editUser } from "../../assets/service/userService";
+import { Cart as CartEnt } from "../../entities/cart";
+import { User } from "../../entities/user";
+import { editMoney, getUsers } from "../../service/userService";
+import { editUser } from "../../service/userService";
 import { MessageCart } from "../alert-component/Alert";
 
 export const Cart = () => {

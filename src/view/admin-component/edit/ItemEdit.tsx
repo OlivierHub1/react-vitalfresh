@@ -5,8 +5,8 @@ import {
   getItems,
   addItem,
   editItem,
-} from "../../../assets/service/itemService";
-import { getTypes } from "../../../assets/service/typeService";
+} from "../../../service/itemService";
+import { getTypes } from "../../../service/typeService";
 import { storage } from "../../../firebase";
 import { v4 } from "uuid";
 import { useNavigate } from "react-router-dom";

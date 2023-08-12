@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { ref, onValue, remove, child, set } from "firebase/database";
-import { db, storage } from "../../firebase";
+import { db, storage } from "../firebase";
 import { User } from "../entities/user";
 import { Item } from "../entities/item";
 import { deleteObject, ref as storageRef } from "@firebase/storage";

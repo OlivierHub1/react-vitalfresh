@@ -6,13 +6,13 @@ import {
   addItem,
   deleteItem,
   getItems,
-} from "../../assets/service/itemService";
-import { getTypes } from "../../assets/service/typeService";
+} from "../../service/itemService";
+import { getTypes } from "../../service/typeService";
 import { uploadBytes, getDownloadURL } from "@firebase/storage";
 import { ref } from "firebase/storage";
 import { storage } from "../../firebase";
 import { v4 } from "uuid";
-import { Item as itemObj } from "../../assets/entities/item";
+import { Item as itemObj } from "../../entities/item";
 import { Message } from "../alert-component/Alert";
 
 export const Item = () => {

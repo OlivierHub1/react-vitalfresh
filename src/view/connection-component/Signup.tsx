@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import "./Login.css";
-import { addUser, getUsers } from "../../assets/service/userService";
+import { addUser, getUsers } from "../../service/userService";
 import { uploadBytes, getDownloadURL } from "@firebase/storage";
 import { ref } from "firebase/storage";
 import { storage } from "../../firebase";
 import { v4 } from "uuid";
-import { User } from "../../assets/entities/user";
+import { User } from "../../entities/user";
 import { Message } from "../alert-component/Alert";
 
 export const Signup = () => {

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Footnote } from "../footnote-component/Footnote";
 import { Outlet, useNavigate } from "react-router-dom";
-import { getTypes } from "../../assets/service/typeService";
+import { getTypes } from "../../service/typeService";
 
 export const Shop = () => {
   //Get type

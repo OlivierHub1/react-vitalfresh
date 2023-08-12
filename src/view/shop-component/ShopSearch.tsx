@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import data from "../../assets/data/item.json";
-import { getItems } from "../../assets/service/itemService";
-import { getCart, addItemInCart } from "../../assets/service/cartService";
+import { getItems } from "../../service/itemService";
+import { getCart, addItemInCart } from "../../service/cartService";
 import { MessageConnection } from "../alert-component/Alert";
 
 export const ShopSearch = () => {

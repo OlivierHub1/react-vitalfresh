@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./Profile.css";
 import { Footnote } from "../footnote-component/Footnote";
-import { getUsers } from "../../assets/service/userService";
-import { User } from "../../assets/entities/user";
+import { getUsers } from "../../service/userService";
+import { User } from "../../entities/user";
 import { Link } from "react-router-dom";
 import "./Profile.css"
 

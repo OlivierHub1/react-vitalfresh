@@ -9,7 +9,7 @@ import {
   addType,
   deleteType,
   getTypes,
-} from "../../assets/service/typeService";
+} from "../../service/typeService";
 import { uploadBytes, getDownloadURL } from "@firebase/storage";
 import { ref } from "firebase/storage";
 import { storage } from "../../firebase";

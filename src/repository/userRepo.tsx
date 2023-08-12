@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { ref, onValue, remove, set, push, get, child } from "firebase/database";
 import { deleteObject, ref as storageRef } from "firebase/storage";
-import { db, storage } from "../../firebase";
+import { db, storage } from "../firebase";
 import { User } from "../entities/user";
 
 export const getUsersData = () => {

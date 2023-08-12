@@ -5,12 +5,12 @@ import {
   addUser,
   deleteUser,
   getUsers,
-} from "../../assets/service/userService";
+} from "../../service/userService";
 import { uploadBytes, getDownloadURL } from "@firebase/storage";
 import { ref } from "firebase/storage";
 import { storage } from "../../firebase";
 import { v4 } from "uuid";
-import { User as userObj } from "../../assets/entities/user";
+import { User as userObj } from "../../entities/user";
 import { Message } from "../alert-component/Alert";
 
 export const User = () => {

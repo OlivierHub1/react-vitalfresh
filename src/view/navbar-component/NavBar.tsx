@@ -4,8 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faShoppingCart, faUser } from "@fortawesome/free-solid-svg-icons";
 import "/src/assets/mystyle.css";
 import "./Navbar.css";
-import { User } from "../../assets/entities/user";
-import { getCart } from "../../assets/service/cartService";
+import { User } from "../../entities/user";
+import { getCart } from "../../service/cartService";
 
 //Handle logout
 const handleLogut = () => {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { ref, onValue, child, get } from "firebase/database";
 import { db } from "../../firebase";
-import { User } from "../../assets/entities/user";
+import { User } from "../../entities/user";
 
 /*export const Test = () => {
   const [todoData, setTodoData] = useState([]);

@@ -98,7 +98,7 @@ export const Item = () => {
       Number(type)
     );
     localStorage.setItem("itemDataEdit", JSON.stringify(item));
-    window.location.assign("/admin/item/edit");
+    window.location.assign("/react-vitalfresh/admin/item/edit");
   };
 
   //Delete Item

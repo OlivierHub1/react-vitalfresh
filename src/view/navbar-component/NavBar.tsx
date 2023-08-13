@@ -11,7 +11,7 @@ import { getCart } from "../../service/cartService";
 const handleLogut = () => {
   localStorage.clear();
   const navigate = useNavigate();
-  navigate("/");
+  navigate("/react-vitalfresh/");
 };
 
 export const NavBar = () => {
@@ -39,7 +39,7 @@ export const NavBar = () => {
               className="collapse navbar-collapse"
               id="navbarSupportedContent"
             >
-              <a className="navbar-brand mt-2 mt-lg-0" href="#">
+              <Link className="navbar-brand mt-2 mt-lg-0" to="/react-vitalfresh/">
                 <img
                   src="https://firebasestorage.googleapis.com/v0/b/vitalfresh-53b01.appspot.com/o/vitalfresh%2Fvitalfresh-white.png?alt=media&token=8db8c140-caa4-451d-b0b9-e1735d87d4ee"
                   className={isMobile ? "mx-auto d-block" : ""}
@@ -48,7 +48,7 @@ export const NavBar = () => {
                   loading="lazy"
                   id="logo"
                 />
-              </a>
+              </Link>
 
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
@@ -56,7 +56,7 @@ export const NavBar = () => {
                     VITALFRESH
                   </a>
                 </li>
-                {renderNavLink(true, "HOME", "/", isMobile)}
+                {renderNavLink(true, "HOME", "/react-vitalfresh/", isMobile)}
                 {renderNavLink(true, "SHOP", "shop", isMobile)}
                 {renderNavLink(isConnected, "PROFILE", "profile", isMobile)}
               </ul>
@@ -130,7 +130,7 @@ function renderUserOption(condition: boolean) {
   if (condition) {
     return (
       <div className="d-flex flex-row">
-        <Link className="text-reset me-3" to="/cart">
+        <Link className="text-reset me-3" to="cart">
         <FontAwesomeIcon icon={faShoppingCart} />
         <span className="badge rounded-pill badge-notification bg-danger">
           {cart.length}
@@ -153,14 +153,14 @@ function renderUserOption(condition: boolean) {
           aria-labelledby="navbarDropdownMenuAvatar"
         >
           <li>
-            <Link className="dropdown-item text-black" to={"/profile"}>
+            <Link className="dropdown-item text-black" to={"profile"}>
               My profile
             </Link>
           </li>
           <li>
             <Link
               className="dropdown-item text-black"
-              to={"/"}
+              to={"/react-vitalfresh/"}
               onClick={handleLogut}
             >
               Logout

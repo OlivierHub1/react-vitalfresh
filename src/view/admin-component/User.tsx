@@ -62,7 +62,7 @@ export const User = () => {
       status
     );
     localStorage.setItem("userDataEdit", JSON.stringify(user));
-    window.location.assign("/admin/user/edit");
+    window.location.assign("/react-vitalfresh/admin/user/edit");
   };
 
   //Upload File

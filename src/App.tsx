@@ -30,10 +30,6 @@ import { ItemEdit } from "./view/admin-component/edit/ItemEdit";
 import { NavBar } from "./view/navbar-component/NavBar";
 import { NotFound } from "./view/error-component/NotFound";
 
-//Test
-import { Test } from "./view/a-test/test";
-import { File } from "./view/a-test/File";
-
 //Verify user connection
 const isConnected = localStorage.getItem("userName") != null;
 const isAdmin = localStorage.getItem("admin") == "admin";
@@ -41,7 +37,7 @@ const isAdmin = localStorage.getItem("admin") == "admin";
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/" element={<NavBar />}>
+      <Route path="/react-vitalfresh/" element={<NavBar />}>
         <Route index element={<Home />} />
         <Route path="shop" element={<Shop />}>
           <Route index element={<ShopAll />} />
@@ -62,8 +58,6 @@ function App() {
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<Signup />} />
         <Route path="*" element={<NotFound />} />
-        <Route path="test" element={<Test />} />
-        <Route path="file" element={<File />} />
       </Route>
     )
   );

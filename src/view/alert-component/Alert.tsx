@@ -52,7 +52,7 @@ export const MessageCart: React.FC<Props> = ({
       </Modal.Header>
       <Modal.Body>{message}</Modal.Body>
       <Modal.Footer>
-        <Button variant={color} onClick={() => window.location.assign("/")}>
+        <Button variant={color} onClick={() => window.location.assign("/react-vitalfresh/")}>
           Home
         </Button>
       </Modal.Footer>
@@ -80,7 +80,7 @@ export const MessageConnection: React.FC<Props> = ({
       </Modal.Header>
       <Modal.Body>{message}</Modal.Body>
       <Modal.Footer>
-        <Button variant={color} onClick={() => navigate("/login")}>
+        <Button variant={color} onClick={() => navigate("/react-vitalfresh/login")}>
           Login
         </Button>
       </Modal.Footer>

@@ -68,7 +68,7 @@ export const Home = () => {
         <h1 className="text-center">Our products</h1>
         <div className={isMobile ? "row row-cols-1 g-1" : "row row-cols-3 g-3"}>
           {types.map((type) => (
-            <Link to={"/shop/" + type.id} key={type.id} className="" onClick={handleScrollBar} >
+            <Link to={"shop/" + type.id} key={type.id} className="" onClick={handleScrollBar} >
               <div className="col">
                 <div className="card">
                   <img

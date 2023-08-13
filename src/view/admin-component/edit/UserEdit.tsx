@@ -52,7 +52,7 @@ export const UserEdit = () => {
         username
       );
       localStorage.setItem("userDataEdit", "");
-      navigate("/admin");
+      navigate("/react-vitalfresh/admin");
     } catch (error) {
       console.error("Error uploading image:", error);
     }

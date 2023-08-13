@@ -57,7 +57,7 @@ export const ItemEdit = () => {
         Number(typeId)
       );
       localStorage.setItem("itemDataEdit", "");
-      navigate("/admin");
+      navigate("/react-vitalfresh/admin");
     } catch (error) {
       console.error("Error uploading image:", error);
     }

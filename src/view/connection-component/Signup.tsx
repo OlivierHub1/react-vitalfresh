@@ -66,7 +66,7 @@ export const Signup = () => {
           "user",
           username
         );
-        navigate("/login");
+        navigate("/react-vitalfresh/login");
       } catch (error) {
         console.error("Error uploading image:", error);
       }
@@ -131,7 +131,7 @@ export const Signup = () => {
             Sign Up
           </button>
           <p className="message">
-            Registered? <NavLink to="/login">Login</NavLink>
+            Registered? <NavLink to="/react-vitalfresh/login">Login</NavLink>
           </p>
         </div>
       </div>

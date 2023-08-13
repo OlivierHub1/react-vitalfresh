@@ -81,7 +81,7 @@ function getUserByUsername(username: string, users: User[]) {
 function renderBtnAdmin(condition: string) {
   if (condition == "admin") {
     return (
-      <Link to={"/admin"} className="btn btn-dark">
+      <Link to={"/react-vitalfresh/admin"} className="btn btn-dark">
         Edit data
       </Link>
     );

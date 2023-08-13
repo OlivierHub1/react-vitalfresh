@@ -31,7 +31,7 @@ export const Shop = () => {
   const handleSelectChange = (event) => {
     const value = event.target.value;
     setSelectedValue(value);
-    navigate(`/shop/${value}`);
+    navigate(`${value}`);
   };
 
   //Search item
@@ -40,9 +40,9 @@ export const Shop = () => {
   const handleSearch = (event) => {
     event.preventDefault();
     if (searchInput != "") {
-      navigate(`/shop/search/${searchInput}`);
+      navigate(`search/${searchInput}`);
     } else {
-      navigate(`/shop`);
+      navigate(``);
     }
   };
 

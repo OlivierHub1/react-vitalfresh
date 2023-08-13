@@ -24,7 +24,7 @@ export const Login = () => {
         localStorage.setItem("admin", "admin");
       }
 
-      window.location.href = "/";
+      window.location.href = "/react-vitalfresh/";
     } else {
       setError("Invalid username or password");
     }
@@ -53,7 +53,7 @@ export const Login = () => {
             Login
           </button>
           <p className="message">
-            Not registered? <Link to="/signup">Create an account</Link>
+            Not registered? <Link to="/react-vitalfresh/signup">Create an account</Link>
           </p>
         </form>
       </div>

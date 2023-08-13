@@ -1,6 +1,6 @@
 .home-title {
   position: relative;
-  background-image: url("/src/assets/images/home/background-fruit.jpg");
+  background-image: url("https://firebasestorage.googleapis.com/v0/b/vitalfresh-53b01.appspot.com/o/vitalfresh%2Fbackground-fruit.jpg?alt=media&token=3d56b8ab-7435-4660-a81f-88d2eb8a5397");
   background-repeat: no-repeat;
   background-size: cover;
   height: 250px;
@@ -16,7 +16,9 @@
   background-color: rgba(68, 67, 67, 0.17);
 }
 
-.home-title h1, .home-title p, .home-title img {
+.home-title h1,
+.home-title p,
+.home-title img {
   position: relative;
   z-index: 1;
 }
@@ -39,15 +41,15 @@
   filter: brightness(90%);
 }
 
-.home-about h1, .home-products h1{
+.home-about h1,
+.home-products h1 {
   color: white !important;
 }
 
-.home-products a{
+.home-products a {
   text-decoration: none;
 }
 
-.home-products .col .card:hover{
+.home-products .col .card:hover {
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
-

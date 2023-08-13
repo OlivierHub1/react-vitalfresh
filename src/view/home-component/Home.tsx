@@ -39,7 +39,7 @@ export const Home = () => {
     <>
       <section className="home-title mask mask-custom bg-image p-5 text-center shadow-1-strong mb-5 text-white">
         <img
-          src="/src/assets/images/logos/vitalfresh-title-main-trans.png"
+          src="https://firebasestorage.googleapis.com/v0/b/vitalfresh-53b01.appspot.com/o/vitalfresh%2Fvitalfresh-title-main-trans.png?alt=media&token=b18552cc-c9e0-4300-9414-c4998ddb87a5"
           alt="logo"
           height={150}
           width={150}

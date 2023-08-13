@@ -41,7 +41,7 @@ export const NavBar = () => {
             >
               <a className="navbar-brand mt-2 mt-lg-0" href="#">
                 <img
-                  src="/src/assets/images/logos/vitalfresh-white.png"
+                  src="https://firebasestorage.googleapis.com/v0/b/vitalfresh-53b01.appspot.com/o/vitalfresh%2Fvitalfresh-white.png?alt=media&token=8db8c140-caa4-451d-b0b9-e1735d87d4ee"
                   className={isMobile ? "mx-auto d-block" : ""}
                   height="15"
                   alt="VitalFresh-Logo"

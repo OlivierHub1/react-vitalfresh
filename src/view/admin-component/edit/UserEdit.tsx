@@ -54,7 +54,7 @@ export const UserEdit = () => {
       localStorage.setItem("userDataEdit", "");
       navigate("/react-vitalfresh/admin");
     } catch (error) {
-      console.error("Error uploading image:", error);
+      //console.error("Error uploading image:", error);
     }
   };
 

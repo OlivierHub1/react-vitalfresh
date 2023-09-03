@@ -37,7 +37,7 @@ export const Type = () => {
 
       addType(description, url, types.length, name);
     } catch (error) {
-      console.error("Error uploading image:", error);
+      //console.error("Error uploading image:", error);
     }
   };
 

@@ -57,17 +57,17 @@ export const deleteItemData = (itemId: number, itemFile: string, type:number) =>
   //Delete file
   const startIndex = itemFile.lastIndexOf(convertTypeId(type) + "%2F") + (3 + convertTypeId(type).length);
     const endIndex = itemFile.indexOf("?");
-    console.log(itemFile.substring(startIndex, endIndex))
+    //console.log(itemFile.substring(startIndex, endIndex))
     const itemRefStorage = storageRef(
       storage,
       "product/" + convertTypeId(type) + "/" + itemFile.substring(startIndex, endIndex)
     );
 
   remove(typeRef).then(() => {
-    console.log("Item " + itemId + " remove");
+    //console.log("Item " + itemId + " remove");
   });
   deleteObject(itemRefStorage).then(() => {
-    console.log("Item image remove: " + itemFile.substring(startIndex, endIndex));
+   //console.log("Item image remove: " + itemFile.substring(startIndex, endIndex));
   });
 };
 
@@ -95,14 +95,14 @@ export const editNewItem = (
   if (file != oldFile) {
     const startIndex = oldFile.lastIndexOf(convertTypeId(type) + "%2F") + (3 + convertTypeId(type).length);
     const endIndex = oldFile.indexOf("?");
-    console.log(oldFile.substring(startIndex, endIndex))
+    //console.log(oldFile.substring(startIndex, endIndex))
     const itemRefStorage = storageRef(
       storage,
       "product/" + convertTypeId(type) + "/" + oldFile.substring(startIndex, endIndex)
     );
 
     deleteObject(itemRefStorage).then(() => {
-      console.log("Item image remove: " + oldFile.substring(startIndex, endIndex));
+      //console.log("Item image remove: " + oldFile.substring(startIndex, endIndex));
     });
   }
 };

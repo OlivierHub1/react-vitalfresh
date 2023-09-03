@@ -7,7 +7,7 @@ import { getUsers } from "../../service/userService";
 export const Login = () => {
   //Get user
   const usersData = getUsers();
-  console.log(usersData)
+  //console.log(usersData)
 
   //Login State
   const [username, setUsername] = useState("");

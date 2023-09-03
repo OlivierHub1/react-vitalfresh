@@ -78,7 +78,7 @@ export const deleteItemInCartData = (id: number, username: string) => {
   const cartRef = ref(db, `cart/${username}/${id}`);
 
   remove(cartRef).then(() => {
-    console.log("Item " + id + " remove");
+    //console.log("Item " + id + " remove");
   });
 };
 
@@ -87,7 +87,7 @@ export const deleteCartData = (username: string) => {
   const cartRef = ref(db, `cart/${username}`);
 
   remove(cartRef).then(() => {
-    console.log(`${username} cart deleted`);
+    //console.log(`${username} cart deleted`);
   });
 };
 

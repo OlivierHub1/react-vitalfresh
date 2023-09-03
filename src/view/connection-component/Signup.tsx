@@ -68,7 +68,7 @@ export const Signup = () => {
         );
         navigate("/react-vitalfresh/login");
       } catch (error) {
-        console.error("Error uploading image:", error);
+        //console.error("Error uploading image:", error);
       }
     }
   };

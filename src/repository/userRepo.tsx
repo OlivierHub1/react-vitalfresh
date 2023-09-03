@@ -33,7 +33,7 @@ export const getUserData = (userId) => {
         //console.log(data);
       })
       .catch((err) => {
-        console.error(err);
+        //console.error(err);
       });
   }, []);
 
@@ -102,7 +102,7 @@ export const editUserData = (
       "user/" + oldFile.substring(startIndex, endIndex)
     );
     deleteObject(userRefStorage).then(() => {
-      console.log("User ancient image remove");
+      //console.log("User ancient image remove");
     });
   }
 };
@@ -145,9 +145,9 @@ export const deleteUserData = (userId: number, userFile: string) => {
   );
 
   remove(usersRef).then(() => {
-    console.log("User " + userId + " remove");
+    //console.log("User " + userId + " remove");
   });
   deleteObject(userRefStorage).then(() => {
-    console.log("User image remove");
+    //console.log("User image remove");
   });
 };

@@ -110,7 +110,7 @@ export const User = () => {
         username
       );
     } catch (error) {
-      console.error("Error uploading image:", error);
+      //console.error("Error uploading image:", error);
     }
     }
 

@@ -75,7 +75,7 @@ export const Item = () => {
           color: "success",
         });
       } catch (error) {
-        console.error("Error uploading image:", error);
+        //console.error("Error uploading image:", error);
       }
     }
   };

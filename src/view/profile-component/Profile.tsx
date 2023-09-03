@@ -16,7 +16,7 @@ export const Profile = () => {
     setUserData(userProfileData);
   }, [users]);
 
-  console.log(users);
+  //console.log(users);
 
   if (!userData) {
     return (

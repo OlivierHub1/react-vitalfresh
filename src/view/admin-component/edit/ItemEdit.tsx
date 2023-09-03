@@ -59,7 +59,7 @@ export const ItemEdit = () => {
       localStorage.setItem("itemDataEdit", "");
       navigate("/react-vitalfresh/admin");
     } catch (error) {
-      console.error("Error uploading image:", error);
+      //console.error("Error uploading image:", error);
     }
   };
 

@@ -15,7 +15,7 @@ export const getTypesData = () => {
         id: key,
         ...data[key],
       }));
-      console.log(newPosts);
+      //console.log(newPosts);
       setTodoData(newPosts);
     });
 
@@ -58,9 +58,9 @@ export const deleteTypeData = (typeId: number, typeFile: string) => {
   );
 
   remove(typeRef).then(() => {
-    console.log("Type " + typeId + " remove");
+    //console.log("Type " + typeId + " remove");
   });
   deleteObject(typeRefStorage).then(() => {
-    console.log("Type image remove");
+    //console.log("Type image remove");
   });
 };

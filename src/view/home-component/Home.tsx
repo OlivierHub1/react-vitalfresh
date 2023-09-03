@@ -87,7 +87,7 @@ export const Home = () => {
         </div>
       </section>
 
-      <Footnote></Footnote>
+      <Footnote fixed_bottom={false}/>
     </>
   );
 };

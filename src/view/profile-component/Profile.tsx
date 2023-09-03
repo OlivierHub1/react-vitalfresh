@@ -28,7 +28,7 @@ export const Profile = () => {
 
   return (
     <>
-      <div className="profile container rounded bg-green-shadow rounded mt-5 mb-5">
+      <div className="profile container rounded bg-green-shadow rounded my-5">
         <div className="row">
           <div className="col-md-4 border-right bg-dark rounded">
             <div className="h-100 d-flex align-items-center">
@@ -69,7 +69,7 @@ export const Profile = () => {
         </div>
       </div>
 
-      <Footnote />
+      <Footnote fixed_bottom={true} />
     </>
   );
 };

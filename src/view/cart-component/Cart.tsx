@@ -224,7 +224,7 @@ export const Cart = () => {
         </div>
       </div>
 
-      <Footnote />
+      <Footnote fixed_bottom={true} />
       {message && (
         <MessageCart
           result={message.result}

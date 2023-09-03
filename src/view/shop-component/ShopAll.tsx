@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { getItems } from "../../service/itemService";
 import { MessageConnection } from "../alert-component/Alert";
-import { Cart } from "../../entities/cart";
 import {
   addItemInCart,
-  editQuantity,
   getCart,
 } from "../../service/cartService";
 

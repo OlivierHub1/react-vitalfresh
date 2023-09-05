@@ -23,7 +23,7 @@ export const Home = () => {
   const handleScrollBar = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: "smooth",
     });
   };
 
@@ -48,19 +48,34 @@ export const Home = () => {
 
       <section className="home-about container bg-green-shadow mb-3 pb-5 rounded">
         <h1 className="text-center">About us</h1>
-        <div className="row text-center">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-          temporibus doloremque, illum aliquam perspiciatis ab debitis quaerat,
-          sunt eligendi, eum mollitia omnis? Enim, quas minima harum magnam
-          saepe, ea eligendi illum voluptatibus dolor deleniti alias nulla
-          vitae. Accusantium, dolorem et alias repellendus corporis culpa,
-          eveniet expedita fugit autem iure asperiores architecto aspernatur!
-          Eos obcaecati, culpa velit laudantium exercitationem laborum? Illo
-          rerum quisquam harum distinctio earum, veritatis assumenda
-          exercitationem, quo, iusto tenetur impedit odio quam. Dicta hic
-          exercitationem minima sapiente corporis, voluptate, qui rem obcaecati,
-          repellat error quibusdam reprehenderit. Neque totam veniam praesentium
-          in architecto ratione libero expedita, repellat soluta enim.
+        <div className="row text-justify rounded bg-dark text-light p-2">
+          <p>
+            Welcome to VitalFresh, your one-stop online destination for all
+            things healthy and delicious. At VitalFresh, we're on a mission to
+            empower you to make better choices for your well-being by offering a
+            wide array of nutritious and wholesome foods that not only nourish
+            your body but also tantalize your taste buds.
+          </p>
+          <p>
+            Easy and Secure Shopping: Our user-friendly website is designed with
+            your convenience in mind. With just a few clicks, you can browse,
+            select, and purchase your favorite healthy foods, all backed by
+            robust security measures to protect your personal information.
+          </p>
+          <p>
+            Join the VitalFresh Community: At VitalFresh, we believe that
+            healthy eating should be a joyful experience, not a chore. We invite
+            you to join our thriving community of health enthusiasts and food
+            lovers who are committed to making nutritious choices every day.
+          </p>
+          <p>
+            Embark on a journey towards a healthier, happier you with
+            VitalFresh. Explore our website today and discover the vibrant world
+            of wholesome foods that await you.
+          </p>
+          <p>
+            VitalFresh - Where Fresh Meets Healthy, and Healthy Meets Delicious.
+          </p>
         </div>
       </section>
 
@@ -68,7 +83,12 @@ export const Home = () => {
         <h1 className="text-center">Our products</h1>
         <div className={isMobile ? "row row-cols-1 g-1" : "row row-cols-3 g-3"}>
           {types.map((type) => (
-            <Link to={"shop/" + type.id} key={type.id} className="" onClick={handleScrollBar} >
+            <Link
+              to={"shop/" + type.id}
+              key={type.id}
+              className=""
+              onClick={handleScrollBar}
+            >
               <div className="col">
                 <div className="card">
                   <img
@@ -87,7 +107,7 @@ export const Home = () => {
         </div>
       </section>
 
-      <Footnote fixed_bottom={false}/>
+      <Footnote fixed_bottom={false} />
     </>
   );
 };
